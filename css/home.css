@@ -1692,13 +1692,15 @@ body.has-dock {
 
 .hx-bg-video {
   position: absolute;
-  inset: -8%;
-  width: 116%;
-  height: 116%;
+  /* Bias video toward the logo/stage side so gameplay reads behind the brand */
+  inset: -4% -2% -4% -18%;
+  width: 118%;
+  height: 108%;
   object-fit: cover;
-  object-position: center center;
-  transform: scale(1.12);
-  filter: blur(18px) saturate(1.25) brightness(0.55) contrast(1.08);
+  object-position: 68% center;
+  transform: scale(1.06);
+  /* Clearer than before: less blur, slightly brighter */
+  filter: blur(7px) saturate(1.2) brightness(0.72) contrast(1.1);
   opacity: 0;
   transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
@@ -1710,17 +1712,18 @@ body.has-dock {
 }
 
 @keyframes hxVidDrift {
-  from { transform: scale(1.12) translate3d(0, 0, 0); }
-  to { transform: scale(1.18) translate3d(-1.5%, -1%, 0); }
+  from { transform: scale(1.06) translate3d(0, 0, 0); }
+  to { transform: scale(1.1) translate3d(-1%, -0.6%, 0); }
 }
 
 /* Extra soft blur layer for “behind glass” feel */
 .hx-video-blur {
   position: absolute;
   inset: 0;
-  backdrop-filter: blur(10px) saturate(1.15);
-  -webkit-backdrop-filter: blur(10px) saturate(1.15);
-  background: rgba(3, 6, 14, 0.18);
+  /* lighter frosted layer so gameplay stays readable */
+  backdrop-filter: blur(2px) saturate(1.1);
+  -webkit-backdrop-filter: blur(2px) saturate(1.1);
+  background: rgba(3, 6, 14, 0.08);
   z-index: 1;
 }
 
@@ -1729,10 +1732,11 @@ body.has-dock {
   position: absolute;
   inset: 0;
   z-index: 2;
+  /* Stronger darken on text side, clearer window on logo/video side */
   background:
-    linear-gradient(105deg, rgba(3, 6, 14, 0.82) 0%, rgba(3, 8, 18, 0.55) 42%, rgba(3, 10, 22, 0.42) 100%),
-    radial-gradient(ellipse 70% 60% at 75% 45%, rgba(0, 120, 255, 0.18), transparent 60%),
-    linear-gradient(180deg, rgba(3, 5, 10, 0.25) 0%, rgba(3, 5, 10, 0.55) 100%);
+    linear-gradient(105deg, rgba(3, 6, 14, 0.88) 0%, rgba(3, 8, 18, 0.58) 38%, rgba(3, 10, 22, 0.22) 72%, rgba(3, 10, 22, 0.18) 100%),
+    radial-gradient(ellipse 55% 55% at 78% 48%, rgba(0, 140, 255, 0.14), transparent 62%),
+    linear-gradient(180deg, rgba(3, 5, 10, 0.18) 0%, rgba(3, 5, 10, 0.42) 100%);
 }
 
 .hx-video-vignette {
@@ -1762,19 +1766,19 @@ body.has-dock {
 }
 
 [data-theme="light"] .hx-video-blur {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(14px) saturate(1.1);
-  -webkit-backdrop-filter: blur(14px) saturate(1.1);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(3px) saturate(1.05);
+  -webkit-backdrop-filter: blur(3px) saturate(1.05);
 }
 
 [data-theme="light"] .hx-video-veil {
   background:
-    linear-gradient(105deg, rgba(245, 248, 255, 0.88) 0%, rgba(235, 242, 255, 0.62) 48%, rgba(230, 240, 255, 0.5) 100%),
-    radial-gradient(ellipse 70% 60% at 75% 45%, rgba(0, 120, 255, 0.12), transparent 60%);
+    linear-gradient(105deg, rgba(245, 248, 255, 0.9) 0%, rgba(235, 242, 255, 0.55) 42%, rgba(230, 240, 255, 0.28) 100%),
+    radial-gradient(ellipse 55% 55% at 78% 48%, rgba(0, 120, 255, 0.1), transparent 62%);
 }
 
 [data-theme="light"] .hx-bg-video {
-  filter: blur(20px) saturate(1.1) brightness(0.85) contrast(1.05);
+  filter: blur(8px) saturate(1.08) brightness(0.92) contrast(1.05);
 }
 
 /* Logo glass plate over blurred video */
@@ -1883,14 +1887,15 @@ body.has-dock {
 /* Mobile: lighter blur for performance, still readable */
 @media (max-width: 720px) {
   .hx-bg-video {
-    filter: blur(14px) saturate(1.15) brightness(0.5) contrast(1.05);
-    inset: -6%;
-    width: 112%;
-    height: 112%;
+    filter: blur(6px) saturate(1.12) brightness(0.62) contrast(1.06);
+    inset: -4%;
+    width: 108%;
+    height: 108%;
+    object-position: center center;
   }
   .hx-video-blur {
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
   }
   .hx-logo-glass {
     width: min(88%, 240px);
@@ -1919,7 +1924,7 @@ body.has-dock {
 /* Prefer reduced data / save battery: pause heavy effects on small screens in light idle */
 @media (max-width: 480px) {
   .hx-bg-video {
-    filter: blur(12px) saturate(1.1) brightness(0.48);
+    filter: blur(5px) saturate(1.08) brightness(0.58);
   }
 }
 
