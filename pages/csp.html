@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1 · CSP Setting | UHM</title>
+  <link rel="icon" href="../assets/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="rtl" data-page="csp" data-depth="1">
+  <div id="site-chrome"></div>
+
+  <main class="main">
+    <header class="page-header">
+      <div class="page-badge"><span>1</span> · CSP Setting</div>
+      <h1 data-fa="نصب Custom Shaders Patch Preset" data-en="Install Custom Shaders Patch Preset">نصب Custom Shaders Patch Preset</h1>
+      <p data-fa="پریست CSP پک را در Content Manager کپی و اعمال کنید." data-en="Copy the pack CSP preset into Content Manager and apply it.">
+        پریست CSP پک را در Content Manager کپی و اعمال کنید.
+      </p>
+    </header>
+
+    <ol class="steps">
+      <li class="step">
+        <div class="step-head">
+          <span class="step-num">1</span>
+          <h2 class="step-title" data-fa="کپی فایل Preset" data-en="Copy the Preset file">کپی فایل Preset</h2>
+        </div>
+        <div class="step-body">
+          <p data-fa="فایل Preset را در مسیر زیر کپی کنید:" data-en="Copy the Preset file to this path:">
+            فایل <strong>Preset</strong> را در مسیر زیر کپی کنید:
+          </p>
+          <div class="path-box">
+            <div class="path-box-top">
+              <code class="path-code" id="path-csp">C:\Users\نام کاربری ویندوز\AppData\Local\AcTools Content Manager\Presets\Custom Shaders Patch Presets</code>
+              <button type="button" class="copy-btn" data-copy="path-csp" data-fa="کپی مسیر" data-en="Copy path">کپی مسیر</button>
+            </div>
+            <p class="path-note" data-fa="به‌جای «نام کاربری ویندوز» نام اکانت ویندوز خودتان را بگذارید. پوشه AppData معمولاً مخفی است." data-en="Replace the Windows username with yours. AppData is usually a hidden folder.">
+              به‌جای «نام کاربری ویندوز» نام اکانت ویندوز خودتان را بگذارید. پوشه AppData معمولاً مخفی است.
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="step-head">
+          <span class="step-num">2</span>
+          <h2 class="step-title" data-fa="اعمال در Content Manager" data-en="Apply in Content Manager">اعمال در Content Manager</h2>
+        </div>
+        <div class="step-body">
+          <p data-fa="وارد Content Manager شوید و این مسیر را باز کنید:" data-en="Open Content Manager and go to:">
+            وارد <strong>Content Manager</strong> شوید و این مسیر را باز کنید:
+          </p>
+          <p class="mt-1"><span class="chip">Settings</span> → <span class="chip">Custom Shaders Patch</span></p>
+          <p class="mt-1" data-fa="در پایین سمت راست، از بخش Presets فایل Preset را انتخاب و اعمال کنید." data-en="At the bottom-right, under Presets, select the Preset and apply it.">
+            در پایین سمت راست، از بخش <strong>Presets</strong>، فایل <strong>Preset</strong> را انتخاب و اعمال کنید.
+          </p>
+        </div>
+      </li>
+    </ol>
+
+    <div id="pageNav"></div>
+  </main>
+
+  <footer class="site-footer">UHM · CSP Setting</footer>
+  <script src="../js/layout.js"></script>
+  <script src="../js/app.js"></script>
+  <script>UHM.mountPageNav("csp");</script>
+</body>
+</html>

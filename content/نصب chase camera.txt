@@ -1,0 +1,27 @@
+══════════════════════════════════════════════
+
+```
+        نصب Chaser Camera
+```
+
+══════════════════════════════════════════════
+
+1. فایل **Chaser Camera** را در مسیر زیر کپی کنید:
+
+```text
+...\SteamLibrary\steamapps\common\assettocorsa\extension\lua\chaser-camera
+```
+──────────────────────────────────────────────
+
+2. وارد **Content Manager** شوید.
+
+مسیر زیر را باز کنید:
+
+**Settings → Custom Shaders Patch → Chaser Camera**
+
+در اینجا حتما باید روی 
+kirbycam
+باشه
+
+
+══════════════════════════════════════════════

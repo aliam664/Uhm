@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 · Chaser Camera | UHM</title>
+  <link rel="icon" href="../assets/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="rtl" data-page="chaser" data-depth="1">
+  <div id="site-chrome"></div>
+
+  <main class="main">
+    <header class="page-header">
+      <div class="page-badge"><span>5</span> · Chaser Camera</div>
+      <h1 data-fa="نصب Chaser Camera" data-en="Install Chaser Camera">نصب Chaser Camera</h1>
+      <p data-fa="دوربین تعقیب‌کننده را نصب کنید و حتماً روی kirbycam بگذارید." data-en="Install the chase camera and set it to kirbycam.">
+        دوربین تعقیب‌کننده را نصب کنید و حتماً روی <span class="chip">kirbycam</span> بگذارید.
+      </p>
+    </header>
+
+    <ol class="steps">
+      <li class="step">
+        <div class="step-head">
+          <span class="step-num">1</span>
+          <h2 class="step-title" data-fa="کپی فایل Chaser Camera" data-en="Copy the Chaser Camera files">کپی فایل Chaser Camera</h2>
+        </div>
+        <div class="step-body">
+          <p data-fa="فایل Chaser Camera را در مسیر زیر کپی کنید:" data-en="Copy the Chaser Camera files to this path:">
+            فایل <strong>Chaser Camera</strong> را در مسیر زیر کپی کنید:
+          </p>
+          <div class="path-box">
+            <div class="path-box-top">
+              <code class="path-code" id="path-chaser">...\SteamLibrary\steamapps\common\assettocorsa\extension\lua\chaser-camera</code>
+              <button type="button" class="copy-btn" data-copy="path-chaser" data-fa="کپی مسیر" data-en="Copy path">کپی مسیر</button>
+            </div>
+            <p class="path-note" data-fa="پوشه chaser-camera داخل extension\lua بازی است." data-en="The chaser-camera folder lives under the game's extension\lua path.">
+              پوشه chaser-camera داخل extension\lua بازی است.
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="step-head">
+          <span class="step-num">2</span>
+          <h2 class="step-title" data-fa="تنظیم در Content Manager" data-en="Configure in Content Manager">تنظیم در Content Manager</h2>
+        </div>
+        <div class="step-body">
+          <p data-fa="وارد Content Manager شوید و مسیر زیر را باز کنید:" data-en="Open Content Manager and go to:">
+            وارد <strong>Content Manager</strong> شوید و مسیر زیر را باز کنید:
+          </p>
+          <p class="mt-1"><span class="chip">Settings</span> → <span class="chip">Custom Shaders Patch</span> → <span class="chip">Chaser Camera</span></p>
+          <p class="mt-1" data-fa="اینجا حتماً باید روی kirbycam باشد." data-en="It must be set to kirbycam here.">
+            اینجا حتماً باید روی <span class="chip">kirbycam</span> باشد.
+          </p>
+          <div class="alert alert-danger mt-2">
+            <span class="alert-title" data-fa="⚠ مهم" data-en="⚠ Important">⚠ مهم</span>
+            <span data-fa="اگر گزینه روی kirbycam نباشد، دوربین پک درست کار نمی‌کند." data-en="If it is not set to kirbycam, the pack camera will not work correctly.">
+              اگر گزینه روی kirbycam نباشد، دوربین پک درست کار نمی‌کند.
+            </span>
+          </div>
+        </div>
+      </li>
+    </ol>
+
+    <div id="pageNav"></div>
+  </main>
+
+  <footer class="site-footer">UHM · Chaser Camera</footer>
+  <script src="../js/layout.js"></script>
+  <script src="../js/app.js"></script>
+  <script>UHM.mountPageNav("chaser");</script>
+</body>
+</html>
