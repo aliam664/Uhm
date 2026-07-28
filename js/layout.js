@@ -97,7 +97,7 @@
     "</nav>" +
     '<div class="sidebar-creator">' +
     '<strong>Ali369</strong>' +
-    '<span data-fa="سازنده پک UHM" data-en="UHM pack creator">سازنده پک UHM</span><br>' +
+    '<span data-fa="سازنده پک UHM · v1.0" data-en="UHM pack creator · v1.0">سازنده پک UHM · v1.0</span><br>' +
     '<a href="https://t.me/uhm_009" target="_blank" rel="noopener noreferrer">t.me/uhm_009</a>' +
     "</div></aside>";
 

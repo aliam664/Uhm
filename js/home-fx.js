@@ -266,6 +266,106 @@
     } catch (_) {}
   }
 
+  /* ---------- Prep checklist ---------- */
+  var checks = document.querySelectorAll("#prepChecklist input[data-check]");
+  var checkBar = document.getElementById("checkBar");
+  var checkProgress = document.getElementById("checkProgress");
+  var checkHint = document.getElementById("checkHint");
+  var CHECK_KEY = "uhm-prep-checks";
+
+  function loadChecks() {
+    try {
+      var saved = JSON.parse(localStorage.getItem(CHECK_KEY) || "[]");
+      checks.forEach(function (input, i) {
+        input.checked = !!saved[i];
+      });
+    } catch (_) {}
+  }
+
+  function saveChecks() {
+    var arr = [];
+    checks.forEach(function (input) {
+      arr.push(!!input.checked);
+    });
+    try {
+      localStorage.setItem(CHECK_KEY, JSON.stringify(arr));
+    } catch (_) {}
+  }
+
+  function renderChecks() {
+    var total = checks.length || 1;
+    var done = 0;
+    checks.forEach(function (input) {
+      if (input.checked) done += 1;
+    });
+    var pct = Math.round((done / total) * 100);
+    if (checkBar) checkBar.style.width = pct + "%";
+    if (checkProgress) checkProgress.textContent = done + "/" + total;
+    if (checkHint) {
+      var isFa = (document.documentElement.getAttribute("lang") || "fa") !== "en" &&
+        (document.body.getAttribute("lang") || "fa") !== "en" &&
+        document.body.classList.contains("rtl");
+      if (done === total) {
+        checkHint.textContent = isFa
+          ? "عالی — آماده‌ای بری سراغ نصب."
+          : "Great — you're ready to install.";
+        checkHint.classList.add("is-done");
+      } else {
+        checkHint.textContent = isFa
+          ? "هر مورد را بعد از انجام تیک بزن."
+          : "Tick each item after you finish it.";
+        checkHint.classList.remove("is-done");
+      }
+    }
+  }
+
+  if (checks.length) {
+    loadChecks();
+    renderChecks();
+    checks.forEach(function (input) {
+      input.addEventListener("change", function () {
+        saveChecks();
+        renderChecks();
+      });
+    });
+  }
+
+  /* ---------- Back to top ---------- */
+  var toTop = document.getElementById("toTop");
+  function onToTop() {
+    if (!toTop) return;
+    var y = window.scrollY || 0;
+    toTop.classList.toggle("is-on", y > 700);
+  }
+  if (toTop) {
+    toTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    });
+  }
+
+  /* hook to-top into existing scroll rAF if possible */
+  var _origOnScroll = null;
+  // enhance passive scroll listener already registered: add another light one
+  window.addEventListener(
+    "scroll",
+    function () {
+      onToTop();
+    },
+    { passive: true }
+  );
+  onToTop();
+
+  /* FAQ: only one open at a time for cleaner UX */
+  var faqItems = document.querySelectorAll("#faqList details.faq-item");
+  faqItems.forEach(function (item) {
+    item.addEventListener("toggle", function () {
+      if (!item.open) return;
+      faqItems.forEach(function (other) {
+        if (other !== item) other.open = false;
+      });
+    });
+  });
+
   /* Re-apply FA/EN on injected dock if lang system exists */
   try {
     var lang = localStorage.getItem("uhm-lang") || "fa";
