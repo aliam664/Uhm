@@ -1,0 +1,227 @@
+/* Modern landing FX — count-up, magnetic CTA, scroll progress, sticky bar, word reveal */
+(function () {
+  "use strict";
+
+  if (!document.body.classList.contains("home-v3") && !document.body.classList.contains("page-home")) {
+    return;
+  }
+
+  var reduce =
+    window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Scroll progress bar ---------- */
+  var prog = document.getElementById("scrollProgress");
+  if (!prog) {
+    prog = document.createElement("div");
+    prog.id = "scrollProgress";
+    prog.className = "scroll-progress";
+    prog.setAttribute("aria-hidden", "true");
+    document.body.appendChild(prog);
+  }
+
+  function onScrollProgress() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? (h.scrollTop || window.scrollY) / max : 0;
+    prog.style.transform = "scaleX(" + Math.min(1, Math.max(0, p)) + ")";
+  }
+
+  /* ---------- Sticky download dock ---------- */
+  var dock = document.getElementById("stickyDock");
+  if (!dock) {
+    dock = document.createElement("div");
+    dock.id = "stickyDock";
+    dock.className = "sticky-dock";
+    dock.innerHTML =
+      '<div class="sticky-dock-inner">' +
+      '<div class="sticky-dock-copy">' +
+      '<strong>UHM Pack</strong>' +
+      '<span data-fa="آماده دانلود · ~4.4MB" data-en="Ready · ~4.4MB">آماده دانلود · ~4.4MB</span>' +
+      "</div>" +
+      '<a class="btnx btnx-primary btnx-sm" href="assets/download/uhm-graphics-pack.rar" download="uhm-graphics-pack.rar">' +
+      '<span class="btnx-shine" aria-hidden="true"></span>' +
+      '<span data-fa="دانلود پک" data-en="Download">دانلود پک</span>' +
+      "</a>" +
+      '<a class="sticky-dock-vid" href="#showcase" data-fa="ویدیو" data-en="Video">ویدیو</a>' +
+      "</div>";
+    document.body.appendChild(dock);
+  }
+
+  var hero = document.querySelector(".hx");
+  function onDock() {
+    var y = window.scrollY || 0;
+    var show = y > (hero ? hero.offsetHeight * 0.55 : 420);
+    dock.classList.toggle("is-on", show);
+    document.body.classList.toggle("has-dock", show);
+  }
+
+  /* ---------- Count-up metrics ---------- */
+  function animateCount(el, target, suffix, duration) {
+    if (reduce) {
+      el.textContent = target + (suffix || "");
+      return;
+    }
+    var start = 0;
+    var t0 = null;
+    function frame(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min(1, (ts - t0) / duration);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = Math.round(start + (target - start) * eased);
+      el.textContent = val + (suffix || "");
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  var countEls = document.querySelectorAll("[data-count]");
+  if (countEls.length && "IntersectionObserver" in window) {
+    var cio = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var el = entry.target;
+          if (el.dataset.done) return;
+          el.dataset.done = "1";
+          var target = parseInt(el.getAttribute("data-count"), 10) || 0;
+          var suffix = el.getAttribute("data-suffix") || "";
+          animateCount(el, target, suffix, 1200);
+          cio.unobserve(el);
+        });
+      },
+      { threshold: 0.4 }
+    );
+    countEls.forEach(function (el) {
+      cio.observe(el);
+    });
+  }
+
+  /* ---------- Word / line reveal on hero title ---------- */
+  function splitWords(el) {
+    if (!el || el.dataset.split) return;
+    var text = el.textContent.trim();
+    if (!text) return;
+    el.dataset.split = "1";
+    el.setAttribute("aria-label", text);
+    var words = text.split(/\s+/);
+    el.textContent = "";
+    words.forEach(function (w, i) {
+      var span = document.createElement("span");
+      span.className = "wrd";
+      span.style.setProperty("--i", String(i));
+      var inner = document.createElement("span");
+      inner.className = "wrd-i";
+      inner.textContent = w;
+      span.appendChild(inner);
+      el.appendChild(span);
+      if (i < words.length - 1) el.appendChild(document.createTextNode(" "));
+    });
+  }
+
+  document.querySelectorAll(".hx-title-line, .hx-title-grad, .hx-kicker").forEach(splitWords);
+  requestAnimationFrame(function () {
+    document.querySelector(".hx")?.classList.add("hx-in");
+  });
+
+  /* ---------- Magnetic primary buttons ---------- */
+  if (!reduce && window.matchMedia("(pointer:fine)").matches) {
+    document.querySelectorAll(".btnx-primary, .hx-logo-wrap").forEach(function (btn) {
+      var strength = btn.classList.contains("hx-logo-wrap") ? 12 : 10;
+      btn.addEventListener("pointermove", function (e) {
+        var r = btn.getBoundingClientRect();
+        var x = e.clientX - r.left - r.width / 2;
+        var y = e.clientY - r.top - r.height / 2;
+        btn.style.transform =
+          "translate(" + (x / strength) + "px," + (y / strength) + "px)";
+      });
+      btn.addEventListener("pointerleave", function () {
+        btn.style.transform = "";
+      });
+    });
+  }
+
+  /* ---------- Tilt cards (subtle 3D) ---------- */
+  if (!reduce && window.matchMedia("(pointer:fine)").matches) {
+    document.querySelectorAll(".gcard, .step-card, .preset, .dl-card").forEach(function (card) {
+      card.addEventListener("pointermove", function (e) {
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5;
+        var py = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform =
+          "perspective(900px) rotateY(" +
+          px * 6 +
+          "deg) rotateX(" +
+          -py * 6 +
+          "deg) translateY(-4px)";
+      });
+      card.addEventListener("pointerleave", function () {
+        card.style.transform = "";
+      });
+    });
+  }
+
+  /* ---------- Parallax hero orbs ---------- */
+  var orbA = document.querySelector(".hx-orb-a");
+  var orbB = document.querySelector(".hx-orb-b");
+  var stage = document.querySelector(".hx-stage");
+  function onParallax() {
+    if (reduce) return;
+    var y = window.scrollY || 0;
+    if (y > 900) return;
+    if (orbA) orbA.style.translate = "0 " + y * 0.12 + "px";
+    if (orbB) orbB.style.translate = "0 " + y * -0.08 + "px";
+    if (stage) stage.style.translate = "0 " + y * 0.05 + "px";
+  }
+
+  /* ---------- Spotlight follow on hero ---------- */
+  var hx = document.querySelector(".hx");
+  if (hx && !reduce && window.matchMedia("(pointer:fine)").matches) {
+    hx.addEventListener("pointermove", function (e) {
+      var r = hx.getBoundingClientRect();
+      var x = ((e.clientX - r.left) / r.width) * 100;
+      var y = ((e.clientY - r.top) / r.height) * 100;
+      hx.style.setProperty("--spot-x", x + "%");
+      hx.style.setProperty("--spot-y", y + "%");
+    });
+  }
+
+  /* ---------- Smooth anchor for #showcase ---------- */
+  document.querySelectorAll('a[href="#showcase"], a[href="#download"], a[href="#guides"]').forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      var id = a.getAttribute("href").slice(1);
+      var el = document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    });
+  });
+
+  /* bind scroll */
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      onScrollProgress();
+      onDock();
+      onParallax();
+      ticking = false;
+    });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* Re-apply FA/EN on injected dock if lang system exists */
+  try {
+    var lang = localStorage.getItem("uhm-lang") || "fa";
+    if (window.UHM && typeof window.UHM.applyLang === "function") {
+      /* no-op if not exported */
+    } else {
+      document.querySelectorAll("#stickyDock [data-fa]").forEach(function (el) {
+        var fa = el.getAttribute("data-fa");
+        var en = el.getAttribute("data-en") || fa;
+        el.textContent = lang === "en" ? en : fa;
+      });
+    }
+  } catch (_) {}
+})();

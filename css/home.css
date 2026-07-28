@@ -1260,3 +1260,419 @@ body.ltr .gcard:hover .ggo { transform: translateX(4px); }
     animation: none !important;
   }
 }
+
+/* =========================================================
+   Modern landing FX layer (2025–2026 patterns)
+   sticky dock · scroll progress · word reveal · tilt · spot
+   ========================================================= */
+
+/* Scroll progress — top edge glow */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 300;
+  transform-origin: left center;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, #0055cc, #0088ff 40%, #5cbcff 70%, #00d4ff);
+  box-shadow: 0 0 16px rgba(0, 160, 255, 0.65);
+  pointer-events: none;
+}
+
+body.rtl .scroll-progress {
+  transform-origin: right center;
+}
+
+/* Cursor spotlight on hero */
+.hx {
+  --spot-x: 70%;
+  --spot-y: 30%;
+}
+
+.hx::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    520px 360px at var(--spot-x) var(--spot-y),
+    rgba(0, 160, 255, 0.16),
+    transparent 60%
+  );
+  transition: background 0.12s linear;
+  mix-blend-mode: screen;
+}
+
+[data-theme="light"] .hx::after {
+  background: radial-gradient(
+    520px 360px at var(--spot-x) var(--spot-y),
+    rgba(0, 120, 255, 0.1),
+    transparent 62%
+  );
+  mix-blend-mode: multiply;
+}
+
+/* Word stagger reveal */
+.hx-kicker .wrd,
+.hx-title-line .wrd,
+.hx-title-grad .wrd {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.hx-kicker .wrd-i,
+.hx-title-line .wrd-i,
+.hx-title-grad .wrd-i {
+  display: inline-block;
+  transform: translateY(110%);
+  opacity: 0;
+  filter: blur(6px);
+  transition:
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.7s ease,
+    filter 0.7s ease;
+  transition-delay: calc(var(--i, 0) * 0.055s + 0.12s);
+}
+
+.hx.hx-in .wrd-i {
+  transform: none;
+  opacity: 1;
+  filter: blur(0);
+}
+
+.hx-brand {
+  opacity: 0;
+  transform: translateY(18px) scale(0.96);
+  filter: blur(8px);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.9s ease;
+  transition-delay: 0.05s;
+}
+
+.hx.hx-in .hx-brand {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+.hx-lead,
+.hx-cta,
+.hx-trust,
+.hx-badges {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hx.hx-in .hx-badges { opacity: 1; transform: none; transition-delay: 0.05s; }
+.hx.hx-in .hx-lead { opacity: 1; transform: none; transition-delay: 0.45s; }
+.hx.hx-in .hx-cta { opacity: 1; transform: none; transition-delay: 0.58s; }
+.hx.hx-in .hx-trust { opacity: 1; transform: none; transition-delay: 0.7s; }
+
+.hx-stage {
+  opacity: 0;
+  transform: translateY(24px) scale(0.96);
+  transition:
+    opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 0.2s;
+}
+
+.hx.hx-in .hx-stage {
+  opacity: 1;
+  transform: none;
+}
+
+/* Soft pulse ring on primary CTA */
+.btnx-primary {
+  animation: ctaBreath 3.6s ease-in-out infinite;
+}
+
+@keyframes ctaBreath {
+  0%, 100% { box-shadow: 0 10px 32px rgba(0, 136, 255, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.28); }
+  50% { box-shadow: 0 14px 42px rgba(0, 160, 255, 0.55), 0 0 0 6px rgba(0, 136, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.3); }
+}
+
+/* Bento-like feature strip under video */
+.bento-proof {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 0.85rem;
+  margin-top: 1.15rem;
+}
+
+.bento-proof .bp {
+  position: relative;
+  padding: 1.15rem 1.1rem;
+  border-radius: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  min-height: 112px;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bento-proof .bp:first-child {
+  background:
+    linear-gradient(145deg, rgba(0, 136, 255, 0.18), transparent 55%),
+    var(--bg-card);
+  border-color: var(--border-strong);
+}
+
+.bento-proof .bp:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-glow);
+}
+
+.bento-proof .bp b {
+  display: block;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.55rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+  background: linear-gradient(135deg, var(--blue-hot), var(--blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bento-proof .bp span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.bento-proof .bp em {
+  display: block;
+  margin-top: 0.35rem;
+  font-style: normal;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* Sticky download dock */
+.sticky-dock {
+  position: fixed;
+  left: 50%;
+  bottom: 1.1rem;
+  transform: translateX(-50%) translateY(140%);
+  z-index: 220;
+  width: min(640px, calc(100% - 1.4rem));
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sticky-dock.is-on {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sticky-dock-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.75rem 0.65rem 1rem;
+  border-radius: 20px;
+  background: rgba(8, 12, 22, 0.82);
+  border: 1px solid var(--border-strong);
+  backdrop-filter: blur(18px) saturate(1.3);
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(0, 136, 255, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] .sticky-dock-inner {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 16px 40px rgba(20, 50, 100, 0.14);
+}
+
+.sticky-dock-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.sticky-dock-copy strong {
+  display: block;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--heading);
+  letter-spacing: 0.04em;
+}
+
+.sticky-dock-copy span {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sticky-dock-vid {
+  flex-shrink: 0;
+  padding: 0.55rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.82rem;
+  font-weight: 750;
+  color: var(--blue-hot);
+  border: 1px solid var(--border);
+  background: var(--blue-soft);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sticky-dock-vid:hover {
+  color: var(--heading);
+  background: rgba(0, 136, 255, 0.2);
+}
+
+body.has-dock {
+  padding-bottom: 5.5rem;
+}
+
+/* Stronger stagger feel */
+.stagger > * {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition-duration: 0.75s !important;
+}
+
+.reveal {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition-duration: 0.85s !important;
+}
+
+/* Guide cards shine sweep */
+.gcard::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  transform: skewX(-18deg) translateX(0);
+  opacity: 0;
+  pointer-events: none;
+  transition: none;
+}
+
+.gcard:hover::after {
+  animation: cardSweep 0.85s ease;
+}
+
+@keyframes cardSweep {
+  from { transform: skewX(-18deg) translateX(0); opacity: 0; }
+  20% { opacity: 1; }
+  to { transform: skewX(-18deg) translateX(320%); opacity: 0; }
+}
+
+/* Media stage lift */
+.media-shell {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+
+.media-stage.has-video:hover .media-shell {
+  transform: translateY(-3px);
+}
+
+/* Section eyebrow pulse dot */
+.hs-eyebrow::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-inline-start: 0.35rem;
+  background: var(--blue-hot);
+  box-shadow: 0 0 10px var(--blue-glow);
+  display: inline-block;
+  vertical-align: middle;
+  animation: livePulse 2.2s ease-in-out infinite;
+}
+
+@media (max-width: 900px) {
+  .bento-proof {
+    grid-template-columns: 1fr 1fr;
+  }
+  .bento-proof .bp:first-child {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 720px) {
+  .sticky-dock {
+    bottom: 0.75rem;
+    width: calc(100% - 1rem);
+  }
+  .sticky-dock-inner {
+    padding: 0.55rem;
+    gap: 0.5rem;
+    border-radius: 16px;
+  }
+  .sticky-dock-copy strong { font-size: 0.84rem; }
+  .sticky-dock .btnx-sm {
+    padding: 0.65rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  .bento-proof {
+    grid-template-columns: 1fr;
+  }
+  .bento-proof .bp:first-child {
+    grid-column: span 1;
+  }
+  .btnx-primary { animation: none; }
+}
+
+@media (hover: none) {
+  .gcard:hover,
+  .step-card:hover,
+  .preset:hover,
+  .dl-card:hover {
+    transform: none !important;
+  }
+  .media-stage.has-video:hover .media-shell {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress,
+  .btnx-primary,
+  .hs-eyebrow::after,
+  .gcard::after {
+    animation: none !important;
+  }
+  .hx-brand,
+  .hx-lead,
+  .hx-cta,
+  .hx-trust,
+  .hx-badges,
+  .hx-stage,
+  .wrd-i {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+  .sticky-dock {
+    transition: none;
+  }
+}

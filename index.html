@@ -92,9 +92,9 @@
             </div>
             <div class="hx-div" aria-hidden="true"></div>
             <div class="hx-metrics">
-              <div><b>9</b><em data-fa="بخش آموزش" data-en="guide parts">بخش آموزش</em></div>
-              <div><b>5</b><em data-fa="نسخه گرافیک" data-en="presets">نسخه گرافیک</em></div>
-              <div><b>RAR</b><em data-fa="آماده دانلود" data-en="ready to get">آماده دانلود</em></div>
+              <div><b data-count="9">0</b><em data-fa="بخش آموزش" data-en="guide parts">بخش آموزش</em></div>
+              <div><b data-count="5">0</b><em data-fa="نسخه گرافیک" data-en="presets">نسخه گرافیک</em></div>
+              <div><b class="en">RAR</b><em data-fa="آماده دانلود" data-en="ready to get">آماده دانلود</em></div>
             </div>
           </div>
         </div>
@@ -193,6 +193,29 @@
           <span class="media-chip">Ali369</span>
           <span class="media-chip">MP4 · HD</span>
         </div>
+
+        <div class="bento-proof stagger">
+          <div class="bp">
+            <b data-count="9">0</b>
+            <span data-fa="بخش آموزش مرحله‌به‌مرحله" data-en="step-by-step guide sections">بخش آموزش مرحله‌به‌مرحله</span>
+            <em data-fa="نصب بدون سردرگمی" data-en="no-guess install">نصب بدون سردرگمی</em>
+          </div>
+          <div class="bp">
+            <b data-count="5">0</b>
+            <span data-fa="نسخه از Low End تا Ultra" data-en="presets from Low End to Ultra">نسخه از Low End تا Ultra</span>
+            <em data-fa="متناسب با سخت‌افزار" data-en="hardware matched">متناسب با سخت‌افزار</em>
+          </div>
+          <div class="bp">
+            <b class="en">CSP</b>
+            <span data-fa="پریست + فیلتر + Pure" data-en="preset + filter + Pure">پریست + فیلتر + Pure</span>
+            <em data-fa="پکیج کامل گرافیک" data-en="full graphics kit">پکیج کامل گرافیک</em>
+          </div>
+          <div class="bp">
+            <b class="en">4.4</b>
+            <span data-fa="مگابایت حجم پک" data-en="MB pack size">مگابایت حجم پک</span>
+            <em data-fa="دانلود سریع" data-en="fast download">دانلود سریع</em>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -219,9 +242,9 @@
           <p class="dl-note"><code>~4.4 MB</code> · RAR · Ali369</p>
         </div>
         <div class="dl-side">
-          <div class="dl-card"><b>5</b><span data-fa="نسخه گرافیکی" data-en="presets">نسخه گرافیکی</span></div>
-          <div class="dl-card"><b>9</b><span data-fa="مرحله آموزش" data-en="guide steps">مرحله آموزش</span></div>
-          <div class="dl-card"><b>AC</b><span data-fa="سازگار با استو" data-en="for Assetto Corsa">سازگار با استو</span></div>
+          <div class="dl-card"><b data-count="5">0</b><span data-fa="نسخه گرافیکی" data-en="presets">نسخه گرافیکی</span></div>
+          <div class="dl-card"><b data-count="9">0</b><span data-fa="مرحله آموزش" data-en="guide steps">مرحله آموزش</span></div>
+          <div class="dl-card"><b class="en">AC</b><span data-fa="سازگار با استو" data-en="for Assetto Corsa">سازگار با استو</span></div>
         </div>
       </div>
     </section>
@@ -353,6 +376,7 @@
   <script src="js/layout.js"></script>
   <script src="js/app.js"></script>
   <script src="js/video-player.js"></script>
+  <script src="js/home-fx.js"></script>
   <script>
     function openMenu() { document.getElementById("menuToggle")?.click(); }
     document.getElementById("openMenuBtn")?.addEventListener("click", openMenu);

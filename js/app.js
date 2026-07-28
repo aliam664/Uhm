@@ -122,6 +122,14 @@
       const fa = el.getAttribute("data-fa");
       const en = el.getAttribute("data-en") || fa;
       if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") return;
+      // keep split-word hero spans intact after first paint
+      if (el.dataset.split === "1") {
+        el.setAttribute("aria-label", isFa ? fa : en);
+        // rebuild simple text if language changes
+        el.textContent = isFa ? fa : en;
+        el.dataset.split = "";
+        return;
+      }
       el.textContent = isFa ? fa : en;
     });
 
