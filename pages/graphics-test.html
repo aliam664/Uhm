@@ -18,20 +18,40 @@
     <header class="page-header">
       <div class="page-badge"><span>9</span> · <span data-fa="تست گرافیک" data-en="Graphics Test">تست گرافیک</span></div>
       <h1 data-fa="گالری تست گرافیک" data-en="Graphics test gallery">گالری تست گرافیک</h1>
-      <p data-fa="اسکرین‌شات‌های واقعی از گرافیک پک UHM داخل بازی." data-en="Real in-game screenshots of the UHM graphics pack.">
-        اسکرین‌شات‌های واقعی از گرافیک پک UHM داخل بازی.
+      <p data-fa="اسکرین‌شات‌های واقعی از گرافیک پک UHM داخل بازی. روی هر عکس بزن تا بزرگ شود." data-en="Real in-game screenshots of the UHM pack. Click any image to enlarge.">
+        اسکرین‌شات‌های واقعی از گرافیک پک UHM داخل بازی. روی هر عکس بزن تا بزرگ شود.
       </p>
     </header>
 
-    <div class="gallery-empty hidden" id="galleryEmpty">
-      <strong data-fa="هنوز عکسی اضافه نشده" data-en="No images yet">هنوز عکسی اضافه نشده</strong>
-      <p data-fa="عکس‌ها را در این پوشه بگذارید:" data-en="Put images in this folder:">
-        عکس‌ها را در این پوشه بگذارید:
-      </p>
-      <code>assets/guides/09-graphics-test/</code>
+    <div class="gallery" id="graphicsGallery" aria-label="Graphics gallery">
+      <button type="button" class="gallery-item" data-src="../assets/guides/09-graphics-test/0ea7455c-d514-4a10-8627-ba7c14bbf21e.jpg">
+        <img src="../assets/guides/09-graphics-test/0ea7455c-d514-4a10-8627-ba7c14bbf21e.jpg" alt="UHM graphics 1" loading="eager" width="640" height="400">
+      </button>
+      <button type="button" class="gallery-item" data-src="../assets/guides/09-graphics-test/12d65895-9828-41be-8018-a711725015e3.jpg">
+        <img src="../assets/guides/09-graphics-test/12d65895-9828-41be-8018-a711725015e3.jpg" alt="UHM graphics 2" loading="lazy" width="640" height="400">
+      </button>
+      <button type="button" class="gallery-item" data-src="../assets/guides/09-graphics-test/2ec1805b-df61-4db6-beed-1c8c08ac0ee5.jpg">
+        <img src="../assets/guides/09-graphics-test/2ec1805b-df61-4db6-beed-1c8c08ac0ee5.jpg" alt="UHM graphics 3" loading="lazy" width="640" height="400">
+      </button>
+      <button type="button" class="gallery-item" data-src="../assets/guides/09-graphics-test/4dd06fad-703e-4e3a-8f09-cfd96a07e7f3.jpg">
+        <img src="../assets/guides/09-graphics-test/4dd06fad-703e-4e3a-8f09-cfd96a07e7f3.jpg" alt="UHM graphics 4" loading="lazy" width="640" height="400">
+      </button>
+      <button type="button" class="gallery-item" data-src="../assets/guides/09-graphics-test/696b6a00-90f5-4d43-bc9a-5ee390368cb6.jpg">
+        <img src="../assets/guides/09-graphics-test/696b6a00-90f5-4d43-bc9a-5ee390368cb6.jpg" alt="UHM graphics 5" loading="lazy" width="640" height="400">
+      </button>
+      <button type="button" class="gallery-item" data-src="../assets/guides/09-graphics-test/830c39f4-b1ff-4d2b-94a0-7ea5549e7f28.jpg">
+        <img src="../assets/guides/09-graphics-test/830c39f4-b1ff-4d2b-94a0-7ea5549e7f28.jpg" alt="UHM graphics 6" loading="lazy" width="640" height="400">
+      </button>
+      <button type="button" class="gallery-item" data-src="../assets/guides/09-graphics-test/91d8263a-117a-4e32-8e36-52e494ab7e7f.jpg">
+        <img src="../assets/guides/09-graphics-test/91d8263a-117a-4e32-8e36-52e494ab7e7f.jpg" alt="UHM graphics 7" loading="lazy" width="640" height="400">
+      </button>
+      <button type="button" class="gallery-item" data-src="../assets/guides/09-graphics-test/c439ae92-1ebe-4683-9f65-8713cf560a28.jpg">
+        <img src="../assets/guides/09-graphics-test/c439ae92-1ebe-4683-9f65-8713cf560a28.jpg" alt="UHM graphics 8" loading="lazy" width="640" height="400">
+      </button>
+      <button type="button" class="gallery-item" data-src="../assets/guides/09-graphics-test/cccb755a-d628-4334-855d-00d4476e4199.jpg">
+        <img src="../assets/guides/09-graphics-test/cccb755a-d628-4334-855d-00d4476e4199.jpg" alt="UHM graphics 9" loading="lazy" width="640" height="400">
+      </button>
     </div>
-
-    <div class="gallery" id="graphicsGallery" aria-label="Graphics gallery"></div>
 
     <div id="pageNav"></div>
   </main>
@@ -50,7 +70,6 @@
     </div>
   </footer>
 
-  <!-- Lightbox -->
   <div class="lightbox" id="lightbox" hidden>
     <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
     <button type="button" class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous">›</button>
@@ -59,43 +78,22 @@
   </div>
 
   <script src="../js/layout.js"></script>
-  <script src="../js/gallery-manifest.js"></script>
   <script src="../js/app.js"></script>
   <script>
     UHM.mountPageNav("graphics-test");
     (function () {
-      var list = window.UHM_GALLERY || [];
-      var base = "../assets/guides/09-graphics-test/";
-      var gal = document.getElementById("graphicsGallery");
-      var empty = document.getElementById("galleryEmpty");
-      if (!list.length) {
-        empty.classList.remove("hidden");
-        gal.classList.add("hidden");
-        return;
-      }
-      empty.classList.add("hidden");
-      gal.innerHTML = "";
-      list.forEach(function (name, i) {
-        var src = base + name;
-        var btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "gallery-item";
-        btn.setAttribute("data-index", String(i));
-        var img = document.createElement("img");
-        img.src = src;
-        img.alt = "UHM graphics " + (i + 1);
-        img.loading = "lazy";
-        btn.appendChild(img);
-        gal.appendChild(btn);
+      var items = Array.prototype.slice.call(document.querySelectorAll("#graphicsGallery .gallery-item"));
+      if (!items.length) return;
+      var sources = items.map(function (el) {
+        return el.getAttribute("data-src") || el.querySelector("img").src;
       });
-
       var lb = document.getElementById("lightbox");
       var lbImg = document.getElementById("lightboxImg");
       var idx = 0;
 
       function show(i) {
-        idx = (i + list.length) % list.length;
-        lbImg.src = base + list[idx];
+        idx = (i + sources.length) % sources.length;
+        lbImg.src = sources[idx];
         lb.hidden = false;
         document.body.style.overflow = "hidden";
       }
@@ -104,10 +102,8 @@
         document.body.style.overflow = "";
       }
 
-      gal.addEventListener("click", function (e) {
-        var item = e.target.closest(".gallery-item");
-        if (!item) return;
-        show(parseInt(item.getAttribute("data-index"), 10) || 0);
+      items.forEach(function (el, i) {
+        el.addEventListener("click", function () { show(i); });
       });
       document.getElementById("lightboxClose").addEventListener("click", hide);
       document.getElementById("lightboxPrev").addEventListener("click", function () { show(idx - 1); });
