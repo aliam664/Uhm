@@ -30,8 +30,26 @@
 
   <main class="home-wrap">
     <!-- ========== HERO ========== -->
-    <section class="hx">
+    <section class="hx hx-has-video-bg">
       <div class="hx-bg" aria-hidden="true">
+        <!-- Cinematic blurred gameplay video behind hero content -->
+        <div class="hx-video-bg" id="hxVideoBg">
+          <video
+            id="heroBgVideo"
+            class="hx-bg-video"
+            muted
+            loop
+            playsinline
+            autoplay
+            preload="metadata"
+            disablepictureinpicture
+          >
+            <source src="assets/media/uhm-showcase.mp4" type="video/mp4">
+          </video>
+          <div class="hx-video-blur"></div>
+          <div class="hx-video-veil"></div>
+          <div class="hx-video-vignette"></div>
+        </div>
         <div class="hx-mesh"></div>
         <div class="hx-grid"></div>
         <div class="hx-beam"></div>
@@ -101,10 +119,15 @@
 
         <div class="hx-stage">
           <div class="hx-stage-glow" aria-hidden="true"></div>
-          <div class="hx-logo-wrap">
-            <div class="hx-ring hx-ring-dash" aria-hidden="true"></div>
-            <div class="hx-ring hx-ring-soft" aria-hidden="true"></div>
-            <img class="hx-logo" src="assets/logo.png" alt="UHM" width="240" height="240">
+
+          <!-- Logo sits ON TOP of the blurred video atmosphere -->
+          <div class="hx-logo-stack">
+            <div class="hx-logo-glass" aria-hidden="true"></div>
+            <div class="hx-logo-wrap">
+              <div class="hx-ring hx-ring-dash" aria-hidden="true"></div>
+              <div class="hx-ring hx-ring-soft" aria-hidden="true"></div>
+              <img class="hx-logo" src="assets/logo.png" alt="UHM" width="240" height="240">
+            </div>
           </div>
 
           <div class="hx-float hx-f1">
@@ -119,6 +142,11 @@
             <span data-fa="نمایش" data-en="Showcase">نمایش</span>
             <strong data-fa="ویدیو واقعی" data-en="Real video">ویدیو واقعی</strong>
           </div>
+
+          <a class="hx-watch-chip" href="#showcase">
+            <span class="hx-watch-dot" aria-hidden="true"></span>
+            <span data-fa="پخش واضح ویدیو ↓" data-en="Watch clear video ↓">پخش واضح ویدیو ↓</span>
+          </a>
         </div>
       </div>
 

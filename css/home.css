@@ -1676,3 +1676,249 @@ body.has-dock {
     transition: none;
   }
 }
+
+/* =========================================================
+   Hero blurred video background
+   Video sits BEHIND logo + copy with cinematic blur/veil
+   ========================================================= */
+
+.hx-video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hx-bg-video {
+  position: absolute;
+  inset: -8%;
+  width: 116%;
+  height: 116%;
+  object-fit: cover;
+  object-position: center center;
+  transform: scale(1.12);
+  filter: blur(18px) saturate(1.25) brightness(0.55) contrast(1.08);
+  opacity: 0;
+  transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.hx.hx-video-ready .hx-bg-video {
+  opacity: 1;
+  animation: hxVidDrift 18s ease-in-out infinite alternate;
+}
+
+@keyframes hxVidDrift {
+  from { transform: scale(1.12) translate3d(0, 0, 0); }
+  to { transform: scale(1.18) translate3d(-1.5%, -1%, 0); }
+}
+
+/* Extra soft blur layer for “behind glass” feel */
+.hx-video-blur {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(10px) saturate(1.15);
+  -webkit-backdrop-filter: blur(10px) saturate(1.15);
+  background: rgba(3, 6, 14, 0.18);
+  z-index: 1;
+}
+
+/* Color veil so text/logo stay readable */
+.hx-video-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(105deg, rgba(3, 6, 14, 0.82) 0%, rgba(3, 8, 18, 0.55) 42%, rgba(3, 10, 22, 0.42) 100%),
+    radial-gradient(ellipse 70% 60% at 75% 45%, rgba(0, 120, 255, 0.18), transparent 60%),
+    linear-gradient(180deg, rgba(3, 5, 10, 0.25) 0%, rgba(3, 5, 10, 0.55) 100%);
+}
+
+.hx-video-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: radial-gradient(ellipse 85% 80% at 50% 45%, transparent 30%, rgba(0, 0, 0, 0.45) 100%);
+  pointer-events: none;
+}
+
+/* Stack order: video bg under mesh/grid accents */
+.hx-bg .hx-mesh,
+.hx-bg .hx-grid,
+.hx-bg .hx-beam,
+.hx-bg .hx-orb,
+.hx-bg .hx-noise {
+  z-index: 4;
+}
+
+.hx-has-video-bg {
+  background:
+    linear-gradient(180deg, rgba(5, 8, 16, 0.2), rgba(5, 8, 16, 0.55));
+}
+
+[data-theme="light"] .hx-has-video-bg {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(238, 244, 255, 0.35));
+}
+
+[data-theme="light"] .hx-video-blur {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px) saturate(1.1);
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
+}
+
+[data-theme="light"] .hx-video-veil {
+  background:
+    linear-gradient(105deg, rgba(245, 248, 255, 0.88) 0%, rgba(235, 242, 255, 0.62) 48%, rgba(230, 240, 255, 0.5) 100%),
+    radial-gradient(ellipse 70% 60% at 75% 45%, rgba(0, 120, 255, 0.12), transparent 60%);
+}
+
+[data-theme="light"] .hx-bg-video {
+  filter: blur(20px) saturate(1.1) brightness(0.85) contrast(1.05);
+}
+
+/* Logo glass plate over blurred video */
+.hx-logo-stack {
+  position: relative;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+
+.hx-logo-glass {
+  position: absolute;
+  width: min(92%, 300px);
+  height: min(92%, 300px);
+  border-radius: 36px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(120, 180, 255, 0.22);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  transform: rotate(-6deg);
+}
+
+[data-theme="light"] .hx-logo-glass {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.22));
+  border-color: rgba(0, 100, 220, 0.16);
+  box-shadow: 0 24px 50px rgba(20, 50, 100, 0.12);
+}
+
+.hx-logo-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+/* Watch clear video chip */
+.hx-watch-chip {
+  position: absolute;
+  z-index: 3;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 750;
+  color: #eaf6ff !important;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(100, 180, 255, 0.35);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.hx-watch-chip:hover {
+  transform: translateX(-50%) translateY(-2px);
+  background: rgba(0, 100, 220, 0.35);
+  border-color: rgba(120, 190, 255, 0.55);
+  color: #fff !important;
+  box-shadow: 0 12px 32px rgba(0, 120, 255, 0.25);
+}
+
+.hx-watch-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff4d5e;
+  box-shadow: 0 0 0 3px rgba(255, 77, 94, 0.22), 0 0 12px rgba(255, 77, 94, 0.55);
+  animation: livePulse 1.6s ease-in-out infinite;
+}
+
+/* Make hero copy more readable over video */
+.hx-has-video-bg .hx-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.hx-has-video-bg .hx-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.hx-has-video-bg .hx-lead {
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+.hx-has-video-bg .hx-title-line {
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.35);
+}
+
+/* If video missing/blocked, fall back to previous look */
+.hx-video-missing .hx-video-bg,
+.hx-video-blocked .hx-bg-video {
+  opacity: 0.35;
+}
+
+.hx-video-missing .hx-video-bg {
+  display: none;
+}
+
+/* Mobile: lighter blur for performance, still readable */
+@media (max-width: 720px) {
+  .hx-bg-video {
+    filter: blur(14px) saturate(1.15) brightness(0.5) contrast(1.05);
+    inset: -6%;
+    width: 112%;
+    height: 112%;
+  }
+  .hx-video-blur {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .hx-logo-glass {
+    width: min(88%, 240px);
+    height: min(88%, 240px);
+    border-radius: 28px;
+  }
+  .hx-watch-chip {
+    bottom: 4%;
+    font-size: 0.74rem;
+    padding: 0.48rem 0.8rem;
+  }
+  .hx-has-video-bg .hx-video-veil {
+    background:
+      linear-gradient(180deg, rgba(3, 6, 14, 0.78) 0%, rgba(3, 8, 18, 0.62) 45%, rgba(3, 8, 18, 0.78) 100%),
+      radial-gradient(ellipse 80% 50% at 50% 20%, rgba(0, 120, 255, 0.16), transparent 60%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hx-bg-video {
+    animation: none !important;
+    opacity: 0.85;
+  }
+}
+
+/* Prefer reduced data / save battery: pause heavy effects on small screens in light idle */
+@media (max-width: 480px) {
+  .hx-bg-video {
+    filter: blur(12px) saturate(1.1) brightness(0.48);
+  }
+}

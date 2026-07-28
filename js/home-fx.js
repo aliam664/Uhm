@@ -211,6 +211,61 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  /* ---------- Hero blurred video background ---------- */
+  var heroVid = document.getElementById("heroBgVideo");
+  var hxRoot = document.querySelector(".hx");
+  if (heroVid) {
+    heroVid.muted = true;
+    heroVid.defaultMuted = true;
+    heroVid.playsInline = true;
+    heroVid.setAttribute("muted", "");
+    heroVid.setAttribute("playsinline", "");
+
+    function tryPlayHero() {
+      var p = heroVid.play();
+      if (p && p.catch) {
+        p.catch(function () {
+          // Autoplay blocked — keep still first frame if available
+          hxRoot && hxRoot.classList.add("hx-video-blocked");
+        });
+      }
+    }
+
+    heroVid.addEventListener("loadeddata", function () {
+      hxRoot && hxRoot.classList.add("hx-video-ready");
+      tryPlayHero();
+    });
+    heroVid.addEventListener("canplay", tryPlayHero);
+    heroVid.addEventListener("error", function () {
+      hxRoot && hxRoot.classList.add("hx-video-missing");
+    });
+
+    // Pause background video when tab hidden / far scrolled (perf)
+    function syncHeroVid() {
+      if (!heroVid) return;
+      var y = window.scrollY || 0;
+      var hide = document.hidden || y > (hero ? hero.offsetHeight + 80 : 700);
+      if (hide) {
+        if (!heroVid.paused) heroVid.pause();
+      } else if (heroVid.paused) {
+        tryPlayHero();
+      }
+    }
+    document.addEventListener("visibilitychange", syncHeroVid);
+    window.addEventListener("scroll", function () {
+      if (!ticking) {
+        /* reuse scroll rAF below — also call sync lightly */
+      }
+      syncHeroVid();
+    }, { passive: true });
+
+    // Kick load
+    try {
+      heroVid.load();
+      tryPlayHero();
+    } catch (_) {}
+  }
+
   /* Re-apply FA/EN on injected dock if lang system exists */
   try {
     var lang = localStorage.getItem("uhm-lang") || "fa";
