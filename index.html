@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="UHM — راهنمای نصب پک گرافیکی Assetto Corsa توسط Ali369">
   <meta name="author" content="Ali369">
-  <meta name="theme-color" content="#050508">
+  <meta name="theme-color" content="#03050a">
   <title>UHM | راهنمای نصب پک گرافیکی</title>
   <link rel="icon" href="assets/logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
   <script>
     (function () {
       try {
@@ -24,97 +25,123 @@
     })();
   </script>
 </head>
-<body class="rtl page-home" data-page="home" data-depth="0">
+<body class="rtl page-home home-v3" data-page="home" data-depth="0">
   <div id="site-chrome"></div>
 
-  <main class="main main-home">
-    <!-- HERO -->
-    <section class="hero-v2">
-      <div class="hero-glow" aria-hidden="true"></div>
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="hero-orbs" aria-hidden="true">
-        <span class="hero-orb o1"></span>
-        <span class="hero-orb o2"></span>
+  <main class="home-wrap">
+    <!-- ========== HERO ========== -->
+    <section class="hx">
+      <div class="hx-bg" aria-hidden="true">
+        <div class="hx-mesh"></div>
+        <div class="hx-grid"></div>
+        <div class="hx-beam"></div>
+        <div class="hx-orb hx-orb-a"></div>
+        <div class="hx-orb hx-orb-b"></div>
+        <div class="hx-noise"></div>
       </div>
 
-      <div class="hero-top">
-        <span class="hero-pill">
-          <span class="hero-pill-dot"></span>
-          Assetto Corsa · Graphics Pack
-        </span>
-        <a class="hero-tg" href="https://t.me/uhm_009" target="_blank" rel="noopener noreferrer">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-          @uhm_009
-        </a>
-      </div>
+      <div class="hx-inner">
+        <div class="hx-copy">
+          <div class="hx-badges">
+            <span class="hx-live"><i></i> Assetto Corsa</span>
+            <a class="hx-tg" href="https://t.me/uhm_009" target="_blank" rel="noopener noreferrer">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+              @uhm_009
+            </a>
+          </div>
 
-      <div class="hero-body">
-        <div class="hero-copy">
-          <p class="hero-kicker" data-fa="آموزش مرحله‌به‌مرحله" data-en="Step-by-step guide">آموزش مرحله‌به‌مرحله</p>
-          <h1>
-            <span class="hero-brand">UHM</span>
-            <span data-fa="راهنمای نصب پک گرافیکی" data-en="Graphics Pack Install Guide">راهنمای نصب پک گرافیکی</span>
+          <p class="hx-kicker" data-fa="پک گرافیکی حرفه‌ای · آموزش کامل" data-en="Pro graphics pack · full guide">پک گرافیکی حرفه‌ای · آموزش کامل</p>
+
+          <h1 class="hx-title">
+            <span class="hx-brand">UHM</span>
+            <span class="hx-title-line" data-fa="گرافیک استو را" data-en="Take Assetto Corsa">گرافیک استو را</span>
+            <span class="hx-title-grad" data-fa="یک سطح بالاتر ببر" data-en="to the next level">یک سطح بالاتر ببر</span>
           </h1>
-          <p class="hero-lead" data-fa="نسخه مناسب سخت‌افزارت را انتخاب کن، پیش‌نیازها را چک کن، و هر بخش را از منوی چپ مرحله‌به‌مرحله نصب کن." data-en="Pick the preset for your hardware, check prerequisites, then install each section from the left menu.">
-            نسخه مناسب سخت‌افزارت را انتخاب کن، پیش‌نیازها را چک کن، و هر بخش را از منوی چپ مرحله‌به‌مرحله نصب کن.
+
+          <p class="hx-lead" data-fa="دانلود پک، تماشای نمایش واقعی بازی، و نصب مرحله‌به‌مرحله — همه در یک جا. نسخه مناسب سخت‌افزارت را انتخاب کن و شروع کن." data-en="Download the pack, watch real gameplay, and install step by step — all in one place. Pick the right preset for your hardware and start.">
+            دانلود پک، تماشای نمایش واقعی بازی، و نصب مرحله‌به‌مرحله — همه در یک جا. نسخه مناسب سخت‌افزارت را انتخاب کن و شروع کن.
           </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary btn-lg" id="downloadPackBtn" href="assets/download/uhm-graphics-pack.rar" download="uhm-graphics-pack.rar">
-              <span class="btn-ico" aria-hidden="true">⬇</span>
+
+          <div class="hx-cta">
+            <a class="btnx btnx-primary" href="assets/download/uhm-graphics-pack.rar" download="uhm-graphics-pack.rar" id="downloadPackBtn">
+              <span class="btnx-shine" aria-hidden="true"></span>
+              <span class="btnx-ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M5 19h14"/></svg>
+              </span>
               <span data-fa="دانلود پک گرافیکی" data-en="Download graphics pack">دانلود پک گرافیکی</span>
             </a>
-            <button type="button" class="btn btn-ghost btn-lg" id="openMenuBtn">
-              <span data-fa="شروع آموزش" data-en="Start guide">شروع آموزش</span>
-              <span class="btn-arrow" aria-hidden="true">←</span>
+            <a class="btnx btnx-glass" href="#showcase">
+              <span class="btnx-ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86a1 1 0 0 0-1.5.86z"/></svg>
+              </span>
+              <span data-fa="تماشای ویدیو" data-en="Watch video">تماشای ویدیو</span>
+            </a>
+            <button type="button" class="btnx btnx-ghost" id="openMenuBtn">
+              <span data-fa="منوی آموزش" data-en="Guide menu">منوی آموزش</span>
+              <span class="btnx-arrow" aria-hidden="true">←</span>
             </button>
-            <a class="btn btn-ghost btn-lg" href="#showcase" data-fa="تماشای ویدیو" data-en="Watch video">تماشای ویدیو</a>
           </div>
-          <div class="hero-meta">
-            <div class="creator-chip">
-              <span class="creator-label" data-fa="سازنده" data-en="Creator">سازنده</span>
-              <strong>Ali369</strong>
-              <span class="creator-sep">·</span>
-              <a href="https://t.me/uhm_009" target="_blank" rel="noopener noreferrer">t.me/uhm_009</a>
+
+          <div class="hx-trust">
+            <div class="hx-creator">
+              <img src="assets/logo.png" alt="" width="40" height="40">
+              <div>
+                <span data-fa="سازنده" data-en="Creator">سازنده</span>
+                <strong>Ali369</strong>
+              </div>
             </div>
-            <div class="hero-stats">
-              <span><strong>9</strong> <em data-fa="بخش" data-en="sections">بخش</em></span>
-              <span><strong>5</strong> <em data-fa="نسخه" data-en="presets">نسخه</em></span>
-              <span><strong>AC</strong> <em data-fa="استو" data-en="Corsa">استو</em></span>
+            <div class="hx-div" aria-hidden="true"></div>
+            <div class="hx-metrics">
+              <div><b>9</b><em data-fa="بخش آموزش" data-en="guide parts">بخش آموزش</em></div>
+              <div><b>5</b><em data-fa="نسخه گرافیک" data-en="presets">نسخه گرافیک</em></div>
+              <div><b>RAR</b><em data-fa="آماده دانلود" data-en="ready to get">آماده دانلود</em></div>
             </div>
           </div>
         </div>
 
-        <div class="hero-visual" aria-hidden="true">
-          <div class="hero-logo-ring">
-            <img src="assets/logo.png" alt="" width="200" height="200" class="hero-logo-img">
+        <div class="hx-stage">
+          <div class="hx-stage-glow" aria-hidden="true"></div>
+          <div class="hx-logo-wrap">
+            <div class="hx-ring hx-ring-dash" aria-hidden="true"></div>
+            <div class="hx-ring hx-ring-soft" aria-hidden="true"></div>
+            <img class="hx-logo" src="assets/logo.png" alt="UHM" width="240" height="240">
           </div>
-          <div class="hero-float-card f1">
-            <span class="hf-label">RX 580</span>
+
+          <div class="hx-float hx-f1">
+            <span>RX 580</span>
             <strong>Medium</strong>
           </div>
-          <div class="hero-float-card f2">
-            <span class="hf-label" data-fa="پیش‌نیاز" data-en="Required">پیش‌نیاز</span>
+          <div class="hx-float hx-f2">
+            <span data-fa="پیش‌نیاز" data-en="Required">پیش‌نیاز</span>
             <strong>Pure + Light</strong>
           </div>
-          <div class="hero-float-card f3">
-            <span class="hf-label" data-fa="بخش‌ها" data-en="Guides">بخش‌ها</span>
-            <strong>9 Steps</strong>
+          <div class="hx-float hx-f3">
+            <span data-fa="نمایش" data-en="Showcase">نمایش</span>
+            <strong data-fa="ویدیو واقعی" data-en="Real video">ویدیو واقعی</strong>
           </div>
+        </div>
+      </div>
+
+      <div class="hx-strip" aria-hidden="true">
+        <div class="hx-strip-track">
+          <span>UHM</span><span>Assetto Corsa</span><span>CSP</span><span>Pure</span><span>PP Filter</span><span>Chaser</span><span>Neck FX</span><span>HUD</span>
+          <span>UHM</span><span>Assetto Corsa</span><span>CSP</span><span>Pure</span><span>PP Filter</span><span>Chaser</span><span>Neck FX</span><span>HUD</span>
         </div>
       </div>
     </section>
 
-    <!-- SHOWCASE VIDEO -->
-    <section class="home-section reveal" id="showcase">
-      <div class="section-head row">
+    <!-- ========== SHOWCASE ========== -->
+    <section class="hs reveal" id="showcase">
+      <div class="hs-head">
         <div>
-          <h2 data-fa="نمایش گرافیک پک" data-en="Pack showcase">نمایش گرافیک پک</h2>
-          <p data-fa="ویدیوی واقعی از داخل بازی با پک UHM — برای بهترین کیفیت تمام‌صفحه کن." data-en="Real in-game footage with the UHM pack — go fullscreen for best quality.">
-            ویدیوی واقعی از داخل بازی با پک UHM — برای بهترین کیفیت تمام‌صفحه کن.
+          <p class="hs-eyebrow" data-fa="نمایش زنده" data-en="Live showcase">نمایش زنده</p>
+          <h2 data-fa="ببین پک چطور به نظر می‌رسه" data-en="See how the pack looks">ببین پک چطور به نظر می‌رسه</h2>
+          <p data-fa="ویدیوی واقعی از داخل بازی. برای بهترین کیفیت تمام‌صفحه کن." data-en="Real in-game footage. Go fullscreen for the best quality.">
+            ویدیوی واقعی از داخل بازی. برای بهترین کیفیت تمام‌صفحه کن.
           </p>
         </div>
-        <a class="btn btn-primary" href="assets/download/uhm-graphics-pack.rar" download="uhm-graphics-pack.rar" id="downloadPackBtn2">
-          <span class="btn-ico" aria-hidden="true">⬇</span>
+        <a class="btnx btnx-primary btnx-sm" href="assets/download/uhm-graphics-pack.rar" download="uhm-graphics-pack.rar" id="downloadPackBtn2">
+          <span class="btnx-shine" aria-hidden="true"></span>
           <span data-fa="دانلود پک" data-en="Download pack">دانلود پک</span>
         </a>
       </div>
@@ -122,18 +149,10 @@
       <div class="media-stage has-video" id="mediaStage">
         <div class="media-shell">
           <div class="media-frame" id="mediaFrame">
-            <video
-              id="showcaseVideo"
-              class="showcase-video"
-              playsinline
-              preload="auto"
-              controlslist="nodownload"
-              disablepictureinpicture
-            >
+            <video id="showcaseVideo" class="showcase-video" playsinline preload="auto" controlslist="nodownload" disablepictureinpicture>
               <source src="assets/media/uhm-showcase.mp4" type="video/mp4">
             </video>
 
-            <!-- Custom cinematic overlay (before play) -->
             <button type="button" class="video-overlay" id="videoOverlay" aria-label="Play video">
               <span class="video-overlay-bg" aria-hidden="true"></span>
               <span class="video-overlay-content">
@@ -145,7 +164,6 @@
               </span>
             </button>
 
-            <!-- Custom bottom controls -->
             <div class="video-bar" id="videoBar">
               <button type="button" class="vbtn" id="vPlay" aria-label="Play/Pause" title="Play">
                 <svg class="ico-play" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86a1 1 0 0 0-1.5.86z"/></svg>
@@ -170,108 +188,99 @@
         </div>
 
         <div class="media-meta">
-          <div class="media-chip"><span data-fa="نمایش واقعی بازی" data-en="Real gameplay">نمایش واقعی بازی</span></div>
-          <div class="media-chip"><span data-fa="پک UHM" data-en="UHM pack">پک UHM</span></div>
-          <div class="media-chip"><span>Ali369 · @uhm_009</span></div>
-          <div class="media-chip"><span data-fa="MP4 · کیفیت بالا" data-en="MP4 · HD">MP4 · کیفیت بالا</span></div>
+          <span class="media-chip" data-fa="گیم‌پلی واقعی" data-en="Real gameplay">گیم‌پلی واقعی</span>
+          <span class="media-chip">UHM Pack</span>
+          <span class="media-chip">Ali369</span>
+          <span class="media-chip">MP4 · HD</span>
         </div>
       </div>
     </section>
 
-    <!-- DOWNLOAD PACK -->
-    <section class="home-section reveal" id="download">
-      <div class="download-banner">
-        <div class="download-banner-glow" aria-hidden="true"></div>
-        <div class="download-banner-text">
-          <p class="download-kicker" data-fa="فایل اصلی پک" data-en="Main pack file">فایل اصلی پک</p>
+    <!-- ========== DOWNLOAD ========== -->
+    <section class="hs reveal" id="download">
+      <div class="dl-panel">
+        <div class="dl-glow" aria-hidden="true"></div>
+        <div class="dl-main">
+          <p class="hs-eyebrow" data-fa="فایل اصلی" data-en="Main file">فایل اصلی</p>
           <h2 data-fa="دانلود پک گرافیکی UHM" data-en="Download UHM Graphics Pack">دانلود پک گرافیکی UHM</h2>
-          <p data-fa="بعد از دانلود، از بخش‌های آموزش مرحله‌به‌مرحله نصب کن. قبل از نصب از فایل‌ها بکاپ بگیر." data-en="After download, follow the guide sections step by step. Back up your files first.">
-            بعد از دانلود، از بخش‌های آموزش مرحله‌به‌مرحله نصب کن. قبل از نصب از فایل‌ها بکاپ بگیر.
+          <p class="dl-text" data-fa="بعد از دانلود، از آموزش‌های پایین صفحه مرحله‌به‌مرحله نصب کن. قبل از نصب حتماً بکاپ بگیر." data-en="After download, follow the guides below step by step. Back up your files first.">
+            بعد از دانلود، از آموزش‌های پایین صفحه مرحله‌به‌مرحله نصب کن. قبل از نصب حتماً بکاپ بگیر.
           </p>
-          <div class="download-actions">
-            <a class="btn btn-primary btn-lg" href="assets/download/uhm-graphics-pack.rar" download="uhm-graphics-pack.rar" id="downloadPackBtn3">
-              <span class="btn-ico" aria-hidden="true">⬇</span>
+          <div class="dl-actions">
+            <a class="btnx btnx-primary" href="assets/download/uhm-graphics-pack.rar" download="uhm-graphics-pack.rar" id="downloadPackBtn3">
+              <span class="btnx-shine" aria-hidden="true"></span>
+              <span class="btnx-ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M5 19h14"/></svg>
+              </span>
               <span data-fa="دانلود uhm-graphics-pack.rar" data-en="Download uhm-graphics-pack.rar">دانلود uhm-graphics-pack.rar</span>
             </a>
-            <a class="btn btn-ghost btn-lg" href="pages/csp.html" data-fa="شروع نصب از CSP" data-en="Start install from CSP">شروع نصب از CSP</a>
+            <a class="btnx btnx-glass" href="pages/csp.html" data-fa="شروع نصب از CSP" data-en="Start with CSP">شروع نصب از CSP</a>
           </div>
-          <p class="download-path">
-            <span data-fa="حجم تقریبی:" data-en="Approx size:">حجم تقریبی:</span>
-            <code>~4.4 MB · RAR</code>
-          </p>
+          <p class="dl-note"><code>~4.4 MB</code> · RAR · Ali369</p>
         </div>
-        <div class="download-side">
-          <div class="download-stat"><strong>5</strong><span data-fa="نسخه گرافیکی" data-en="presets">نسخه گرافیکی</span></div>
-          <div class="download-stat"><strong>9</strong><span data-fa="مرحله آموزش" data-en="guide steps">مرحله آموزش</span></div>
-          <div class="download-stat"><strong>RAR</strong><span data-fa="فرمت فایل" data-en="file format">فرمت فایل</span></div>
+        <div class="dl-side">
+          <div class="dl-card"><b>5</b><span data-fa="نسخه گرافیکی" data-en="presets">نسخه گرافیکی</span></div>
+          <div class="dl-card"><b>9</b><span data-fa="مرحله آموزش" data-en="guide steps">مرحله آموزش</span></div>
+          <div class="dl-card"><b>AC</b><span data-fa="سازگار با استو" data-en="for Assetto Corsa">سازگار با استو</span></div>
         </div>
       </div>
     </section>
 
-    <!-- QUICK STEPS -->
-    <section class="home-section reveal">
-      <div class="section-head">
-        <h2 data-fa="مسیر نصب سریع" data-en="Quick path">مسیر نصب سریع</h2>
-        <p data-fa="قبل از باز کردن بخش‌ها، این سه مورد را انجام بده." data-en="Do these three things before opening the sections.">قبل از باز کردن بخش‌ها، این سه مورد را انجام بده.</p>
+    <!-- ========== STEPS ========== -->
+    <section class="hs reveal">
+      <div class="hs-head center">
+        <p class="hs-eyebrow" data-fa="شروع سریع" data-en="Quick start">شروع سریع</p>
+        <h2 data-fa="فقط سه قدم تا نصب" data-en="Just three steps to install">فقط سه قدم تا نصب</h2>
       </div>
-      <div class="bento-steps stagger">
-        <article class="bento-card">
-          <span class="bento-num">01</span>
+      <div class="step-grid stagger">
+        <article class="step-card">
+          <div class="step-top"><span class="step-n">01</span><span class="step-line" aria-hidden="true"></span></div>
           <h3 data-fa="بکاپ بگیر" data-en="Back up">بکاپ بگیر</h3>
-          <p data-fa="از فایل‌های اصلی بازی و تنظیمات قبلی کپی داشته باش." data-en="Keep a copy of original game files and previous settings.">از فایل‌های اصلی بازی و تنظیمات قبلی کپی داشته باش.</p>
+          <p data-fa="از فایل‌های اصلی بازی و تنظیمات قبلی یک کپی داشته باش." data-en="Keep a copy of original game files and previous settings.">از فایل‌های اصلی بازی و تنظیمات قبلی یک کپی داشته باش.</p>
         </article>
-        <article class="bento-card">
-          <span class="bento-num">02</span>
+        <article class="step-card">
+          <div class="step-top"><span class="step-n">02</span><span class="step-line" aria-hidden="true"></span></div>
           <h3 data-fa="پیش‌نیازها" data-en="Prerequisites">پیش‌نیازها</h3>
-          <p data-fa="Pure و Light Patch را به آخرین نسخه نصب/آپدیت کن." data-en="Install/update Pure and Light Patch to the latest version.">Pure و Light Patch را به آخرین نسخه نصب/آپدیت کن.</p>
+          <p data-fa="Pure و Light Patch را به آخرین نسخه نصب یا آپدیت کن." data-en="Install or update Pure and Light Patch to the latest version.">Pure و Light Patch را به آخرین نسخه نصب یا آپدیت کن.</p>
         </article>
-        <article class="bento-card accent">
-          <span class="bento-num">03</span>
+        <article class="step-card step-card-hot">
+          <div class="step-top"><span class="step-n">03</span></div>
           <h3 data-fa="نسخه مناسب" data-en="Right preset">نسخه مناسب</h3>
-          <p data-fa="با توجه به کارت گرافیک، یکی از ۵ نسخه را انتخاب کن." data-en="Pick one of the 5 presets based on your GPU.">با توجه به کارت گرافیک، یکی از ۵ نسخه را انتخاب کن.</p>
+          <p data-fa="با توجه به کارت گرافیک، یکی از ۵ نسخه را انتخاب و نصب کن." data-en="Pick one of the 5 presets based on your GPU and install it.">با توجه به کارت گرافیک، یکی از ۵ نسخه را انتخاب و نصب کن.</p>
         </article>
       </div>
     </section>
 
-    <!-- VERSIONS -->
-    <section class="home-section reveal">
-      <div class="section-head">
-        <h2 data-fa="نسخه‌های گرافیکی" data-en="Graphics presets">نسخه‌های گرافیکی</h2>
-        <p data-fa="از ضعیف‌ترین سیستم تا حداکثر کیفیت." data-en="From low-end PCs to maximum quality.">از ضعیف‌ترین سیستم تا حداکثر کیفیت.</p>
+    <!-- ========== PRESETS ========== -->
+    <section class="hs reveal">
+      <div class="hs-head center">
+        <p class="hs-eyebrow" data-fa="نسخه‌ها" data-en="Presets">نسخه‌ها</p>
+        <h2 data-fa="از سیستم ضعیف تا اولترا" data-en="From low-end to ultra">از سیستم ضعیف تا اولترا</h2>
+        <p data-fa="نسخه نامتناسب = افت FPS یا لگ. با سخت‌افزارت هماهنگ انتخاب کن." data-en="A mismatched preset means low FPS or stutter. Match your hardware.">
+          نسخه نامتناسب = افت FPS یا لگ. با سخت‌افزارت هماهنگ انتخاب کن.
+        </p>
       </div>
-      <div class="version-rail stagger">
-        <div class="version-card">
-          <strong>Low End</strong>
-          <span data-fa="بیشترین FPS" data-en="Max FPS">بیشترین FPS</span>
-        </div>
-        <div class="version-card">
-          <strong>Low</strong>
-          <span data-fa="روان و سبک" data-en="Smooth & light">روان و سبک</span>
-        </div>
-        <div class="version-card recommend">
-          <div class="rec-tag" data-fa="پیشنهادی RX 580" data-en="Best for RX 580">پیشنهادی RX 580</div>
-          <strong>Medium</strong>
+      <div class="preset-rail stagger">
+        <div class="preset"><strong class="en">Low End</strong><span data-fa="بیشترین FPS" data-en="Max FPS">بیشترین FPS</span></div>
+        <div class="preset"><strong class="en">Low</strong><span data-fa="روان و سبک" data-en="Smooth & light">روان و سبک</span></div>
+        <div class="preset preset-hot">
+          <span class="preset-badge" data-fa="پیشنهادی RX 580" data-en="Best for RX 580">پیشنهادی RX 580</span>
+          <strong class="en">Medium</strong>
           <span data-fa="تعادل کیفیت / FPS" data-en="Quality / FPS balance">تعادل کیفیت / FPS</span>
         </div>
-        <div class="version-card">
-          <strong>High</strong>
-          <span data-fa="کیفیت بالا" data-en="High quality">کیفیت بالا</span>
-        </div>
-        <div class="version-card">
-          <strong>Ultra</strong>
-          <span data-fa="حداکثر گرافیک" data-en="Max graphics">حداکثر گرافیک</span>
-        </div>
+        <div class="preset"><strong class="en">High</strong><span data-fa="کیفیت بالا" data-en="High quality">کیفیت بالا</span></div>
+        <div class="preset"><strong class="en">Ultra</strong><span data-fa="حداکثر گرافیک" data-en="Max graphics">حداکثر گرافیک</span></div>
       </div>
     </section>
 
-    <!-- WARNINGS -->
-    <section class="home-section reveal">
-      <div class="warn-panel">
-        <div class="warn-icon" aria-hidden="true">!</div>
+    <!-- ========== WARNING ========== -->
+    <section class="hs reveal">
+      <div class="warn-box">
+        <div class="warn-mark" aria-hidden="true">!</div>
         <div>
-          <h2 data-fa="هشدارهای مهم" data-en="Important warnings">هشدارهای مهم</h2>
+          <h2 data-fa="قبل از نصب بخوان" data-en="Read before installing">قبل از نصب بخوان</h2>
           <ul>
-            <li data-fa="بدون Pure یا Light Patch (یا نسخه قدیمی) ممکن است گرافیک خراب شود یا بازی اجرا نشود." data-en="Without Pure/Light Patch (or if outdated), graphics may break or the game may not run.">بدون Pure یا Light Patch (یا نسخه قدیمی) ممکن است گرافیک خراب شود یا بازی اجرا نشود.</li>
+            <li data-fa="بدون Pure یا Light Patch (یا نسخه قدیمی) ممکن است گرافیک خراب شود یا بازی اجرا نشود." data-en="Without Pure/Light Patch (or if outdated), graphics may break or the game may fail to launch.">بدون Pure یا Light Patch (یا نسخه قدیمی) ممکن است گرافیک خراب شود یا بازی اجرا نشود.</li>
             <li data-fa="نسخه نامتناسب با سیستم = افت FPS، لگ یا کرش." data-en="Wrong preset for your PC = low FPS, stutter, or crash.">نسخه نامتناسب با سیستم = افت FPS، لگ یا کرش.</li>
             <li data-fa="اگر با نصب آشنا نیستی، اول آموزش را کامل بخوان." data-en="If you are new to installs, read the full guide first.">اگر با نصب آشنا نیستی، اول آموزش را کامل بخوان.</li>
             <li data-fa="مسئولیت نصب و استفاده بر عهده کاربر است." data-en="You are responsible for installing and using this pack.">مسئولیت نصب و استفاده بر عهده کاربر است.</li>
@@ -280,98 +289,56 @@
       </div>
     </section>
 
-    <!-- SECTIONS -->
-    <section class="home-section reveal" id="guides">
-      <div class="section-head row">
+    <!-- ========== GUIDES ========== -->
+    <section class="hs reveal" id="guides">
+      <div class="hs-head">
         <div>
-          <h2 data-fa="بخش‌های آموزش" data-en="Guide sections">بخش‌های آموزش</h2>
-          <p data-fa="هر بخش صفحه جدا دارد — از کارت‌ها یا منوی چپ وارد شو." data-en="Each section is its own page — open from cards or the left menu.">هر بخش صفحه جدا دارد — از کارت‌ها یا منوی چپ وارد شو.</p>
+          <p class="hs-eyebrow" data-fa="آموزش کامل" data-en="Full guide">آموزش کامل</p>
+          <h2 data-fa="۹ بخش، هر کدام صفحه جدا" data-en="9 sections, each on its own page">۹ بخش، هر کدام صفحه جدا</h2>
+          <p data-fa="از کارت‌ها وارد شو یا منوی چپ را باز کن." data-en="Open from the cards or the left menu.">از کارت‌ها وارد شو یا منوی چپ را باز کن.</p>
         </div>
-        <button type="button" class="btn btn-ghost" id="openMenuBtn2" data-fa="باز کردن منو" data-en="Open menu">باز کردن منو</button>
+        <button type="button" class="btnx btnx-glass btnx-sm" id="openMenuBtn2" data-fa="باز کردن منو" data-en="Open menu">باز کردن منو</button>
       </div>
 
-      <div class="guide-grid stagger">
-        <a class="guide-card" href="pages/csp.html">
-          <span class="guide-num">01</span>
-          <span class="guide-title">CSP Setting</span>
-          <span class="guide-desc" data-fa="پریست Custom Shaders Patch" data-en="Custom Shaders Patch preset">پریست Custom Shaders Patch</span>
-          <span class="guide-go" aria-hidden="true">←</span>
-        </a>
-        <a class="guide-card" href="pages/pp-filter.html">
-          <span class="guide-num">02</span>
-          <span class="guide-title">PP Filter</span>
-          <span class="guide-desc" data-fa="فیلتر پس‌پردازش" data-en="Post-process filter">فیلتر پس‌پردازش</span>
-          <span class="guide-go" aria-hidden="true">←</span>
-        </a>
-        <a class="guide-card" href="pages/pure-config.html">
-          <span class="guide-num">03</span>
-          <span class="guide-title">Pure Config</span>
-          <span class="guide-desc" data-fa="کانفیگ Pure داخل بازی" data-en="In-game Pure config">کانفیگ Pure داخل بازی</span>
-          <span class="guide-go" aria-hidden="true">←</span>
-        </a>
-        <a class="guide-card" href="pages/video.html">
-          <span class="guide-num">04</span>
-          <span class="guide-title">Video Setting</span>
-          <span class="guide-desc" data-fa="پریست تنظیمات ویدیو" data-en="Video settings preset">پریست تنظیمات ویدیو</span>
-          <span class="guide-go" aria-hidden="true">←</span>
-        </a>
-        <a class="guide-card featured" href="pages/chaser.html">
-          <span class="guide-num">05</span>
-          <span class="guide-title">Chaser Camera</span>
-          <span class="guide-desc" data-fa="دوربین سوم‌شخص + زاویه‌ها" data-en="Third-person camera angles">دوربین سوم‌شخص + زاویه‌ها</span>
-          <span class="guide-tag" data-fa="با عکس" data-en="With photos">با عکس</span>
-          <span class="guide-go" aria-hidden="true">←</span>
-        </a>
-        <a class="guide-card" href="pages/hud.html">
-          <span class="guide-num">06</span>
-          <span class="guide-title">HUD</span>
-          <span class="guide-desc" data-fa="رابط Forza Horizon 4" data-en="Forza Horizon 4 HUD">رابط Forza Horizon 4</span>
-          <span class="guide-go" aria-hidden="true">←</span>
-        </a>
-        <a class="guide-card" href="pages/spr-light.html">
-          <span class="guide-num">07</span>
-          <span class="guide-title">SPR Light</span>
-          <span class="guide-desc" data-fa="نور ترک شوتو / SPR" data-en="Shuto / SPR track lights">نور ترک شوتو / SPR</span>
-          <span class="guide-go" aria-hidden="true">←</span>
-        </a>
-        <a class="guide-card featured" href="pages/neck-fx.html">
-          <span class="guide-num">08</span>
-          <span class="guide-title">Neck FX</span>
-          <span class="guide-desc" data-fa="Cockpit Neck FX + لینک نصب" data-en="Cockpit Neck FX + install link">Cockpit Neck FX + لینک نصب</span>
-          <span class="guide-tag" data-fa="با عکس" data-en="With photos">با عکس</span>
-          <span class="guide-go" aria-hidden="true">←</span>
-        </a>
-        <a class="guide-card wide" href="pages/graphics-test.html">
-          <span class="guide-num">09</span>
-          <span class="guide-title" data-fa="تست گرافیک" data-en="Graphics Test">تست گرافیک</span>
-          <span class="guide-desc" data-fa="گالری اسکرین‌شات از داخل بازی" data-en="In-game screenshot gallery">گالری اسکرین‌شات از داخل بازی</span>
-          <span class="guide-go" aria-hidden="true">←</span>
-        </a>
+      <div class="guide-board stagger">
+        <a class="gcard" href="pages/csp.html"><span class="gnum">01</span><span class="gtitle en">CSP Setting</span><span class="gdesc" data-fa="پریست Custom Shaders Patch" data-en="Custom Shaders Patch preset">پریست Custom Shaders Patch</span><span class="ggo" aria-hidden="true">←</span></a>
+        <a class="gcard" href="pages/pp-filter.html"><span class="gnum">02</span><span class="gtitle en">PP Filter</span><span class="gdesc" data-fa="فیلتر پس‌پردازش" data-en="Post-process filter">فیلتر پس‌پردازش</span><span class="ggo" aria-hidden="true">←</span></a>
+        <a class="gcard" href="pages/pure-config.html"><span class="gnum">03</span><span class="gtitle en">Pure Config</span><span class="gdesc" data-fa="کانفیگ Pure داخل بازی" data-en="In-game Pure config">کانفیگ Pure داخل بازی</span><span class="ggo" aria-hidden="true">←</span></a>
+        <a class="gcard" href="pages/video.html"><span class="gnum">04</span><span class="gtitle en">Video Setting</span><span class="gdesc" data-fa="پریست تنظیمات ویدیو" data-en="Video settings preset">پریست تنظیمات ویدیو</span><span class="ggo" aria-hidden="true">←</span></a>
+        <a class="gcard gcard-hot" href="pages/chaser.html"><span class="gnum">05</span><span class="gtitle en">Chaser Camera</span><span class="gdesc" data-fa="دوربین سوم‌شخص + زاویه‌ها" data-en="Third-person camera angles">دوربین سوم‌شخص + زاویه‌ها</span><span class="gtag" data-fa="با عکس" data-en="Photos">با عکس</span><span class="ggo" aria-hidden="true">←</span></a>
+        <a class="gcard" href="pages/hud.html"><span class="gnum">06</span><span class="gtitle en">HUD</span><span class="gdesc" data-fa="رابط Forza Horizon 4" data-en="Forza Horizon 4 HUD">رابط Forza Horizon 4</span><span class="ggo" aria-hidden="true">←</span></a>
+        <a class="gcard" href="pages/spr-light.html"><span class="gnum">07</span><span class="gtitle en">SPR Light</span><span class="gdesc" data-fa="نور ترک شوتو / SPR" data-en="Shuto / SPR track lights">نور ترک شوتو / SPR</span><span class="ggo" aria-hidden="true">←</span></a>
+        <a class="gcard gcard-hot" href="pages/neck-fx.html"><span class="gnum">08</span><span class="gtitle en">Neck FX</span><span class="gdesc" data-fa="Cockpit Neck FX + لینک نصب" data-en="Cockpit Neck FX + install link">Cockpit Neck FX + لینک نصب</span><span class="gtag" data-fa="با عکس" data-en="Photos">با عکس</span><span class="ggo" aria-hidden="true">←</span></a>
+        <a class="gcard gcard-wide" href="pages/graphics-test.html"><span class="gnum">09</span><span class="gtitle" data-fa="تست گرافیک" data-en="Graphics Test">تست گرافیک</span><span class="gdesc" data-fa="گالری اسکرین‌شات از داخل بازی" data-en="In-game screenshot gallery">گالری اسکرین‌شات از داخل بازی</span><span class="ggo" aria-hidden="true">←</span></a>
       </div>
     </section>
 
-    <!-- CREATOR -->
-    <section class="home-section reveal">
-      <div class="creator-banner">
-        <img src="assets/logo.png" alt="" width="64" height="64" class="creator-banner-logo">
-        <div class="creator-banner-text">
-          <p class="creator-banner-label" data-fa="تگ سازنده" data-en="Creator tag">تگ سازنده</p>
+    <!-- ========== CREATOR ========== -->
+    <section class="hs reveal">
+      <div class="creator-panel">
+        <div class="creator-glow" aria-hidden="true"></div>
+        <img src="assets/logo.png" alt="" width="76" height="76" class="creator-logo">
+        <div class="creator-copy">
+          <p class="hs-eyebrow" data-fa="تگ سازنده" data-en="Creator">تگ سازنده</p>
           <h2>Ali369 <span>· UHM</span></h2>
-          <p data-fa="برای پشتیبانی و آپدیت‌ها در تلگرام پیام بده." data-en="Message on Telegram for support and updates.">برای پشتیبانی و آپدیت‌ها در تلگرام پیام بده.</p>
+          <p data-fa="برای پشتیبانی، سؤال و آپدیت‌ها در تلگرام پیام بده." data-en="Message on Telegram for support, questions, and updates.">
+            برای پشتیبانی، سؤال و آپدیت‌ها در تلگرام پیام بده.
+          </p>
         </div>
-        <a class="btn btn-primary" href="https://t.me/uhm_009" target="_blank" rel="noopener noreferrer">
+        <a class="btnx btnx-primary" href="https://t.me/uhm_009" target="_blank" rel="noopener noreferrer">
+          <span class="btnx-shine" aria-hidden="true"></span>
           Telegram · @uhm_009
         </a>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer site-footer-rich">
+  <footer class="site-footer site-footer-rich home-foot">
     <div class="footer-inner">
       <div class="footer-brand">
         <img src="assets/logo.png" alt="UHM" width="36" height="36">
         <div>
-          <strong>UHM</strong>
+          <strong class="en">UHM</strong>
           <span data-fa="پک گرافیکی استو" data-en="AC Graphics Pack">پک گرافیکی استو</span>
         </div>
       </div>
