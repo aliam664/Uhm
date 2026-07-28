@@ -1,16 +1,28 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa" dir="rtl" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="UHM — راهنمای نصب پک گرافیکی Assetto Corsa توسط Ali369">
   <meta name="author" content="Ali369">
+  <meta name="theme-color" content="#050508">
   <title>UHM | راهنمای نصب پک گرافیکی</title>
   <link rel="icon" href="assets/logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("uhm-theme");
+        if (t !== "light" && t !== "dark") {
+          t = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body class="rtl page-home" data-page="home" data-depth="0">
   <div id="site-chrome"></div>
@@ -63,9 +75,9 @@
           </div>
         </div>
 
-        <div class="hero-visual">
+        <div class="hero-visual" aria-hidden="true">
           <div class="hero-logo-ring">
-            <img src="assets/logo.png" alt="UHM" width="200" height="200" class="hero-logo-img">
+            <img src="assets/logo.png" alt="" width="200" height="200" class="hero-logo-img">
           </div>
           <div class="hero-float-card f1">
             <span class="hf-label">RX 580</span>
@@ -80,12 +92,12 @@
     </section>
 
     <!-- QUICK STEPS -->
-    <section class="home-section">
+    <section class="home-section reveal">
       <div class="section-head">
         <h2 data-fa="مسیر نصب سریع" data-en="Quick path">مسیر نصب سریع</h2>
         <p data-fa="قبل از باز کردن بخش‌ها، این سه مورد را انجام بده." data-en="Do these three things before opening the sections.">قبل از باز کردن بخش‌ها، این سه مورد را انجام بده.</p>
       </div>
-      <div class="bento-steps">
+      <div class="bento-steps stagger">
         <article class="bento-card">
           <span class="bento-num">01</span>
           <h3 data-fa="بکاپ بگیر" data-en="Back up">بکاپ بگیر</h3>
@@ -105,12 +117,12 @@
     </section>
 
     <!-- VERSIONS -->
-    <section class="home-section">
+    <section class="home-section reveal">
       <div class="section-head">
         <h2 data-fa="نسخه‌های گرافیکی" data-en="Graphics presets">نسخه‌های گرافیکی</h2>
         <p data-fa="از ضعیف‌ترین سیستم تا حداکثر کیفیت." data-en="From low-end PCs to maximum quality.">از ضعیف‌ترین سیستم تا حداکثر کیفیت.</p>
       </div>
-      <div class="version-rail">
+      <div class="version-rail stagger">
         <div class="version-card">
           <strong>Low End</strong>
           <span data-fa="بیشترین FPS" data-en="Max FPS">بیشترین FPS</span>
@@ -136,7 +148,7 @@
     </section>
 
     <!-- WARNINGS -->
-    <section class="home-section">
+    <section class="home-section reveal">
       <div class="warn-panel">
         <div class="warn-icon" aria-hidden="true">!</div>
         <div>
@@ -152,7 +164,7 @@
     </section>
 
     <!-- SECTIONS -->
-    <section class="home-section" id="guides">
+    <section class="home-section reveal" id="guides">
       <div class="section-head row">
         <div>
           <h2 data-fa="بخش‌های آموزش" data-en="Guide sections">بخش‌های آموزش</h2>
@@ -161,7 +173,7 @@
         <button type="button" class="btn btn-ghost" id="openMenuBtn2" data-fa="باز کردن منو" data-en="Open menu">باز کردن منو</button>
       </div>
 
-      <div class="guide-grid">
+      <div class="guide-grid stagger">
         <a class="guide-card" href="pages/csp.html">
           <span class="guide-num">01</span>
           <span class="guide-title">CSP Setting</span>
@@ -222,7 +234,7 @@
     </section>
 
     <!-- CREATOR -->
-    <section class="home-section">
+    <section class="home-section reveal">
       <div class="creator-banner">
         <img src="assets/logo.png" alt="" width="64" height="64" class="creator-banner-logo">
         <div class="creator-banner-text">

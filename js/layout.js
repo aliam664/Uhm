@@ -48,7 +48,7 @@
   }
 
   const headerHTML =
-    '<header class="site-header">' +
+    '<header class="site-header" id="siteHeader">' +
     '<div class="header-left">' +
     '<button type="button" class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="sidebar">' +
     "<span></span><span></span><span></span>" +
@@ -65,6 +65,10 @@
     "</span></a></div>" +
     '<div class="header-right">' +
     '<a class="header-tg" href="https://t.me/uhm_009" target="_blank" rel="noopener noreferrer" title="Telegram @uhm_009">@uhm_009</a>' +
+    '<button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Theme">' +
+    '<svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a7 7 0 0 0 11.5 11.5z"/></svg>' +
+    '<svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>' +
+    "</button>" +
     '<div class="lang-switch" role="group" aria-label="Language">' +
     '<button type="button" class="lang-btn active" data-lang="fa">FA</button>' +
     '<button type="button" class="lang-btn" data-lang="en">EN</button>' +

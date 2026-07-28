@@ -1,11 +1,80 @@
-/* UHM site interactions — light animations only */
+/* UHM site interactions — theme, motion, chrome */
 (function () {
   "use strict";
 
   const body = document.body;
+  const root = document.documentElement;
   const toggle = document.getElementById("menuToggle");
   const overlay = document.getElementById("sidebarOverlay");
   const sidebar = document.getElementById("sidebar");
+
+  // ===== Theme (dark / light) =====
+  const THEME_KEY = "uhm-theme";
+  function getPreferredTheme() {
+    try {
+      const saved = localStorage.getItem(THEME_KEY);
+      if (saved === "light" || saved === "dark") return saved;
+    } catch (_) {}
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
+      return "light";
+    }
+    return "dark";
+  }
+  function applyTheme(theme) {
+    const t = theme === "light" ? "light" : "dark";
+    root.setAttribute("data-theme", t);
+    body.setAttribute("data-theme", t);
+    const btn = document.getElementById("themeToggle");
+    if (btn) {
+      btn.setAttribute("aria-label", t === "light" ? "Switch to dark" : "Switch to light");
+      btn.title = t === "light" ? "Dark" : "Light";
+    }
+    try {
+      localStorage.setItem(THEME_KEY, t);
+    } catch (_) {}
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", t === "light" ? "#f3f6fb" : "#050508");
+  }
+  applyTheme(getPreferredTheme());
+  document.addEventListener("click", function (e) {
+    const btn = e.target.closest && e.target.closest("#themeToggle");
+    if (!btn) return;
+    const cur = root.getAttribute("data-theme") || "dark";
+    applyTheme(cur === "dark" ? "light" : "dark");
+  });
+
+  // Header shadow on scroll
+  const header = document.getElementById("siteHeader");
+  if (header) {
+    const onScroll = function () {
+      header.classList.toggle("scrolled", window.scrollY > 8);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll(".reveal, .stagger");
+  if (revealEls.length && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+    revealEls.forEach(function (el) {
+      io.observe(el);
+    });
+  } else {
+    revealEls.forEach(function (el) {
+      el.classList.add("in");
+    });
+  }
 
   function openSidebar() {
     body.classList.add("sidebar-open");
