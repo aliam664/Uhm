@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ali369">
   <title>9 · تست گرافیک | UHM</title>
   <link rel="icon" href="../assets/logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,31 +18,29 @@
     <header class="page-header">
       <div class="page-badge"><span>9</span> · <span data-fa="تست گرافیک" data-en="Graphics Test">تست گرافیک</span></div>
       <h1 data-fa="گالری تست گرافیک" data-en="Graphics test gallery">گالری تست گرافیک</h1>
-      <p data-fa="اسکرین‌شات‌های گرافیک پک از داخل بازی. عکس‌ها را در پوشه مشخص‌شده بگذارید." data-en="In-game screenshots of the pack. Drop images into the folder below.">
-        اسکرین‌شات‌های گرافیک پک از داخل بازی. عکس‌ها را در پوشه مشخص‌شده بگذارید.
+      <p data-fa="اسکرین‌شات‌های واقعی از گرافیک پک UHM داخل بازی." data-en="Real in-game screenshots of the UHM graphics pack.">
+        اسکرین‌شات‌های واقعی از گرافیک پک UHM داخل بازی.
       </p>
     </header>
 
-    <div class="gallery-empty" id="galleryEmpty">
+    <div class="gallery-empty hidden" id="galleryEmpty">
       <strong data-fa="هنوز عکسی اضافه نشده" data-en="No images yet">هنوز عکسی اضافه نشده</strong>
-      <p data-fa="عکس‌های PNG یا JPG را در این پوشه پروژه آپلود کنید:" data-en="Upload PNG or JPG images into this project folder:">
-        عکس‌های PNG یا JPG را در این پوشه پروژه آپلود کنید:
+      <p data-fa="عکس‌ها را در این پوشه بگذارید:" data-en="Put images in this folder:">
+        عکس‌ها را در این پوشه بگذارید:
       </p>
-      <code>assets/graphics-test/</code>
-      <p class="mt-1" style="font-size:0.82rem" data-fa="بعد از آپلود، نام فایل‌ها را در gallery-manifest.js بنویسید یا به من بگویید تا گالری را پر کنم." data-en="After upload, list filenames in gallery-manifest.js or tell me to fill the gallery.">
-        بعد از آپلود، نام فایل‌ها را در <code style="display:inline;padding:0.1rem 0.35rem">js/gallery-manifest.js</code> بنویسید یا بگویید تا گالری را پر کنم.
-      </p>
+      <code>assets/guides/09-graphics-test/</code>
     </div>
 
-    <div class="gallery hidden" id="graphicsGallery" data-autoload="true" data-images=""></div>
+    <div class="gallery" id="graphicsGallery" aria-label="Graphics gallery"></div>
 
     <div id="pageNav"></div>
   </main>
+
   <footer class="site-footer site-footer-rich">
     <div class="footer-inner">
       <div class="footer-brand">
         <img src="../assets/logo.png" alt="UHM" width="36" height="36">
-        <div><strong>UHM</strong><span data-fa="راهنمای نصب" data-en="Install guide">راهنمای نصب</span></div>
+        <div><strong>UHM</strong><span data-fa="تست گرافیک" data-en="Graphics Test">تست گرافیک</span></div>
       </div>
       <div class="footer-creator">
         <span data-fa="سازنده:" data-en="Creator:">سازنده:</span>
@@ -50,32 +49,75 @@
       </div>
     </div>
   </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+    <button type="button" class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous">›</button>
+    <img id="lightboxImg" alt="">
+    <button type="button" class="lightbox-nav next" id="lightboxNext" aria-label="Next">‹</button>
+  </div>
+
   <script src="../js/layout.js"></script>
   <script src="../js/gallery-manifest.js"></script>
   <script src="../js/app.js"></script>
   <script>
     UHM.mountPageNav("graphics-test");
     (function () {
-      var list = (window.UHM_GALLERY || []);
+      var list = window.UHM_GALLERY || [];
+      var base = "../assets/guides/09-graphics-test/";
       var gal = document.getElementById("graphicsGallery");
       var empty = document.getElementById("galleryEmpty");
-      if (!gal || !list.length) return;
+      if (!list.length) {
+        empty.classList.remove("hidden");
+        gal.classList.add("hidden");
+        return;
+      }
       empty.classList.add("hidden");
-      gal.classList.remove("hidden");
       gal.innerHTML = "";
-      list.forEach(function (name) {
-        var src = "../assets/graphics-test/" + name;
-        var a = document.createElement("a");
-        a.href = src;
-        a.target = "_blank";
-        a.rel = "noopener";
-        a.className = "gallery-item";
+      list.forEach(function (name, i) {
+        var src = base + name;
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "gallery-item";
+        btn.setAttribute("data-index", String(i));
         var img = document.createElement("img");
         img.src = src;
-        img.alt = name;
+        img.alt = "UHM graphics " + (i + 1);
         img.loading = "lazy";
-        a.appendChild(img);
-        gal.appendChild(a);
+        btn.appendChild(img);
+        gal.appendChild(btn);
+      });
+
+      var lb = document.getElementById("lightbox");
+      var lbImg = document.getElementById("lightboxImg");
+      var idx = 0;
+
+      function show(i) {
+        idx = (i + list.length) % list.length;
+        lbImg.src = base + list[idx];
+        lb.hidden = false;
+        document.body.style.overflow = "hidden";
+      }
+      function hide() {
+        lb.hidden = true;
+        document.body.style.overflow = "";
+      }
+
+      gal.addEventListener("click", function (e) {
+        var item = e.target.closest(".gallery-item");
+        if (!item) return;
+        show(parseInt(item.getAttribute("data-index"), 10) || 0);
+      });
+      document.getElementById("lightboxClose").addEventListener("click", hide);
+      document.getElementById("lightboxPrev").addEventListener("click", function () { show(idx - 1); });
+      document.getElementById("lightboxNext").addEventListener("click", function () { show(idx + 1); });
+      lb.addEventListener("click", function (e) { if (e.target === lb) hide(); });
+      document.addEventListener("keydown", function (e) {
+        if (lb.hidden) return;
+        if (e.key === "Escape") hide();
+        if (e.key === "ArrowLeft") show(idx + 1);
+        if (e.key === "ArrowRight") show(idx - 1);
       });
     })();
   </script>

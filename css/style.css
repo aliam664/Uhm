@@ -977,12 +977,21 @@ body.sidebar-open .sidebar {
   background: var(--bg-card);
   overflow: hidden;
   position: relative;
-  transition: border-color var(--transition), transform 0.15s ease;
+  transition: border-color var(--transition), transform 0.15s ease, box-shadow var(--transition);
+  cursor: zoom-in;
+  padding: 0;
+  width: 100%;
+  display: block;
 }
 
 .gallery-item:hover {
   border-color: var(--border-strong);
   transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.gallery-item:active {
+  transform: scale(0.99);
 }
 
 .gallery-item img {
@@ -990,6 +999,69 @@ body.sidebar-open .sidebar {
   height: 100%;
   object-fit: cover;
 }
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 600;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  backdrop-filter: blur(6px);
+}
+
+.lightbox[hidden] {
+  display: none !important;
+}
+
+.lightbox img {
+  max-width: min(1100px, 94vw);
+  max-height: 88vh;
+  border-radius: 12px;
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  inset-inline-end: 1rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  transition: background var(--transition), transform 0.15s ease;
+}
+
+.lightbox-close:hover { background: rgba(255, 255, 255, 0.16); }
+.lightbox-close:active { transform: scale(0.95); }
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(0, 120, 255, 0.2);
+  border: 1px solid var(--border-strong);
+  color: #fff;
+  font-size: 1.6rem;
+  transition: background var(--transition), transform 0.15s ease;
+}
+
+.lightbox-nav:hover { background: rgba(0, 120, 255, 0.35); }
+.lightbox-nav:active { transform: translateY(-50%) scale(0.95); }
+.lightbox-nav.prev { inset-inline-start: 1rem; }
+.lightbox-nav.next { inset-inline-end: 1rem; }
 
 .gallery-empty {
   display: flex;
