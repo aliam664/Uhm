@@ -64,6 +64,7 @@
     '<span class="brand-tag" data-fa="پک گرافیکی استو" data-en="AC Graphics Pack">پک گرافیکی استو</span>' +
     "</span></a></div>" +
     '<div class="header-right">' +
+    '<a class="header-tg" href="https://t.me/uhm_009" target="_blank" rel="noopener noreferrer" title="Telegram @uhm_009">@uhm_009</a>' +
     '<div class="lang-switch" role="group" aria-label="Language">' +
     '<button type="button" class="lang-btn active" data-lang="fa">FA</button>' +
     '<button type="button" class="lang-btn" data-lang="en">EN</button>' +
@@ -89,7 +90,12 @@
     buildNav(sections.slice(0, 1)) +
     '<div class="nav-label" data-fa="آموزش‌ها" data-en="Guides">آموزش‌ها</div>' +
     buildNav(sections.slice(1)) +
-    "</nav></aside>";
+    "</nav>" +
+    '<div class="sidebar-creator">' +
+    '<strong>Ali369</strong>' +
+    '<span data-fa="سازنده پک UHM" data-en="UHM pack creator">سازنده پک UHM</span><br>' +
+    '<a href="https://t.me/uhm_009" target="_blank" rel="noopener noreferrer">t.me/uhm_009</a>' +
+    "</div></aside>";
 
   const mount = document.getElementById("site-chrome");
   if (mount) {

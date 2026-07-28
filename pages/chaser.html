@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ali369">
   <title>5 · Chaser Camera | UHM</title>
   <link rel="icon" href="../assets/logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,8 +18,8 @@
     <header class="page-header">
       <div class="page-badge"><span>5</span> · Chaser Camera</div>
       <h1 data-fa="نصب Chaser Camera" data-en="Install Chaser Camera">نصب Chaser Camera</h1>
-      <p data-fa="دوربین تعقیب‌کننده را نصب کنید و حتماً روی kirbycam بگذارید." data-en="Install the chase camera and set it to kirbycam.">
-        دوربین تعقیب‌کننده را نصب کنید و حتماً روی <span class="chip">kirbycam</span> بگذارید.
+      <p data-fa="فایل دوربین را کپی کنید، kirbycam را انتخاب کنید، و زاویه دوربین سوم‌شخص را تنظیم کنید." data-en="Copy the camera files, select kirbycam, then set third-person camera angles.">
+        فایل دوربین را کپی کنید، <span class="chip">kirbycam</span> را انتخاب کنید، و زاویه دوربین سوم‌شخص را تنظیم کنید.
       </p>
     </header>
 
@@ -47,7 +48,7 @@
       <li class="step">
         <div class="step-head">
           <span class="step-num">2</span>
-          <h2 class="step-title" data-fa="تنظیم در Content Manager" data-en="Configure in Content Manager">تنظیم در Content Manager</h2>
+          <h2 class="step-title" data-fa="تنظیم در Custom Shaders Patch" data-en="Configure in Custom Shaders Patch">تنظیم در Custom Shaders Patch</h2>
         </div>
         <div class="step-body">
           <p data-fa="وارد Content Manager شوید و مسیر زیر را باز کنید:" data-en="Open Content Manager and go to:">
@@ -65,12 +66,69 @@
           </div>
         </div>
       </li>
+
+      <li class="step">
+        <div class="step-head">
+          <span class="step-num">3</span>
+          <h2 class="step-title" data-fa="زاویه دوربین سوم‌شخص" data-en="Third-person camera angles">زاویه دوربین سوم‌شخص</h2>
+        </div>
+        <div class="step-body">
+          <p data-fa="برای تنظیم زاویه، این مسیر را باز کنید:" data-en="To set angles, open this path:">
+            برای تنظیم زاویه، این مسیر را باز کنید:
+          </p>
+          <p class="mt-1"><span class="chip">Settings</span> → <span class="chip">Assetto Corsa</span> → <span class="chip">Chase Camera</span></p>
+          <p class="mt-1" data-fa="دو زاویه دارید: First camera و Second camera. هر کدام Distance / Height / Pitch جدا دارند." data-en="You have two angles: First camera and Second camera. Each has its own Distance / Height / Pitch.">
+            دو زاویه دارید: <strong>First camera</strong> و <strong>Second camera</strong>. هر کدام Distance / Height / Pitch جدا دارند.
+          </p>
+
+          <div class="guide-shots two-col">
+            <figure class="shot-card">
+              <a href="../assets/guides/chaser/01-first-camera.jpg" target="_blank" rel="noopener">
+                <img src="../assets/guides/chaser/01-first-camera.jpg" alt="Chase Camera — First camera" loading="lazy" width="800" height="500">
+              </a>
+              <figcaption class="shot-cap">
+                <strong data-fa="First camera" data-en="First camera">First camera</strong>
+                <span data-fa="زاویه نزدیک‌تر / پایین‌تر — نمونه: Distance ≈ 3.35m · Height ≈ 1.1m · Pitch ≈ -1.6°" data-en="Closer / lower angle — example: Distance ≈ 3.35m · Height ≈ 1.1m · Pitch ≈ -1.6°">
+                  زاویه نزدیک‌تر / پایین‌تر — نمونه: Distance ≈ 3.35m · Height ≈ 1.1m · Pitch ≈ -1.6°
+                </span>
+              </figcaption>
+            </figure>
+            <figure class="shot-card">
+              <a href="../assets/guides/chaser/02-second-camera.jpg" target="_blank" rel="noopener">
+                <img src="../assets/guides/chaser/02-second-camera.jpg" alt="Chase Camera — Second camera" loading="lazy" width="800" height="500">
+              </a>
+              <figcaption class="shot-cap">
+                <strong data-fa="Second camera" data-en="Second camera">Second camera</strong>
+                <span data-fa="زاویه دورتر / بالاتر — نمونه: Distance ≈ 4.31m · Height ≈ 1.7m · Pitch ≈ -0.4°" data-en="Farther / higher angle — example: Distance ≈ 4.31m · Height ≈ 1.7m · Pitch ≈ -0.4°">
+                  زاویه دورتر / بالاتر — نمونه: Distance ≈ 4.31m · Height ≈ 1.7m · Pitch ≈ -0.4°
+                </span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <p class="mt-2" data-fa="مقادیر را مطابق پک یا سلیقه خود تنظیم کنید؛ عکس‌ها فقط راهنمای محل تنظیمات هستند." data-en="Match the pack values or your taste; screenshots only show where to configure.">
+            مقادیر را مطابق پک یا سلیقه خود تنظیم کنید؛ عکس‌ها فقط راهنمای محل تنظیمات هستند.
+          </p>
+        </div>
+      </li>
     </ol>
 
     <div id="pageNav"></div>
   </main>
 
-  <footer class="site-footer">UHM · Chaser Camera</footer>
+  <footer class="site-footer site-footer-rich">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="../assets/logo.png" alt="UHM" width="36" height="36">
+        <div><strong>UHM</strong><span>Chaser Camera</span></div>
+      </div>
+      <div class="footer-creator">
+        <span data-fa="سازنده:" data-en="Creator:">سازنده:</span>
+        <strong>Ali369</strong>
+        <a href="https://t.me/uhm_009" target="_blank" rel="noopener noreferrer">@uhm_009</a>
+      </div>
+    </div>
+  </footer>
   <script src="../js/layout.js"></script>
   <script src="../js/app.js"></script>
   <script>UHM.mountPageNav("chaser");</script>
