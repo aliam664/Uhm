@@ -59,11 +59,15 @@
             نسخه مناسب سخت‌افزارت را انتخاب کن، پیش‌نیازها را چک کن، و هر بخش را از منوی چپ مرحله‌به‌مرحله نصب کن.
           </p>
           <div class="hero-actions">
-            <button type="button" class="btn btn-primary btn-lg" id="openMenuBtn">
-              <span data-fa="شروع از منوی چپ" data-en="Start from left menu">شروع از منوی چپ</span>
+            <a class="btn btn-primary btn-lg" id="downloadPackBtn" href="assets/download/uhm-graphics-pack.zip" download>
+              <span class="btn-ico" aria-hidden="true">⬇</span>
+              <span data-fa="دانلود پک گرافیکی" data-en="Download graphics pack">دانلود پک گرافیکی</span>
+            </a>
+            <button type="button" class="btn btn-ghost btn-lg" id="openMenuBtn">
+              <span data-fa="شروع آموزش" data-en="Start guide">شروع آموزش</span>
               <span class="btn-arrow" aria-hidden="true">←</span>
             </button>
-            <a class="btn btn-ghost btn-lg" href="pages/csp.html" data-fa="بخش ۱ — CSP" data-en="Section 1 — CSP">بخش ۱ — CSP</a>
+            <a class="btn btn-ghost btn-lg" href="#showcase" data-fa="تماشای ویدیو" data-en="Watch video">تماشای ویدیو</a>
           </div>
           <div class="hero-meta">
             <div class="creator-chip">
@@ -96,6 +100,88 @@
             <span class="hf-label" data-fa="بخش‌ها" data-en="Guides">بخش‌ها</span>
             <strong>9 Steps</strong>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOWCASE VIDEO -->
+    <section class="home-section reveal" id="showcase">
+      <div class="section-head row">
+        <div>
+          <h2 data-fa="نمایش گرافیک پک" data-en="Pack showcase">نمایش گرافیک پک</h2>
+          <p data-fa="ویدیوی واقعی از داخل بازی با پک UHM." data-en="Real in-game footage with the UHM pack.">ویدیوی واقعی از داخل بازی با پک UHM.</p>
+        </div>
+        <a class="btn btn-primary" href="assets/download/uhm-graphics-pack.zip" download id="downloadPackBtn2">
+          <span class="btn-ico" aria-hidden="true">⬇</span>
+          <span data-fa="دانلود پک" data-en="Download pack">دانلود پک</span>
+        </a>
+      </div>
+
+      <div class="media-stage" id="mediaStage">
+        <div class="media-frame">
+          <video
+            id="showcaseVideo"
+            class="showcase-video"
+            controls
+            playsinline
+            preload="metadata"
+            poster="assets/media/uhm-showcase-poster.jpg"
+            controlslist="nodownload"
+          >
+            <source src="assets/media/uhm-showcase.mp4" type="video/mp4">
+            مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+          </video>
+
+          <div class="media-placeholder" id="mediaPlaceholder">
+            <div class="media-placeholder-inner">
+              <div class="media-play-badge" aria-hidden="true">▶</div>
+              <strong data-fa="ویدیو هنوز آپلود نشده" data-en="Video not uploaded yet">ویدیو هنوز آپلود نشده</strong>
+              <p data-fa="فایل را با این نام دقیق بگذار:" data-en="Upload the file with this exact name:">فایل را با این نام دقیق بگذار:</p>
+              <code>assets/media/uhm-showcase.mp4</code>
+              <p class="media-hint" data-fa="اختیاری: کاور ویدیو → assets/media/uhm-showcase-poster.jpg" data-en="Optional poster → assets/media/uhm-showcase-poster.jpg">اختیاری: کاور ویدیو → assets/media/uhm-showcase-poster.jpg</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-meta">
+          <div class="media-chip"><span data-fa="نمایش واقعی بازی" data-en="Real gameplay">نمایش واقعی بازی</span></div>
+          <div class="media-chip"><span data-fa="پک UHM" data-en="UHM pack">پک UHM</span></div>
+          <div class="media-chip"><span>Ali369</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOWNLOAD PACK -->
+    <section class="home-section reveal" id="download">
+      <div class="download-banner">
+        <div class="download-banner-glow" aria-hidden="true"></div>
+        <div class="download-banner-text">
+          <p class="download-kicker" data-fa="فایل اصلی پک" data-en="Main pack file">فایل اصلی پک</p>
+          <h2 data-fa="دانلود پک گرافیکی UHM" data-en="Download UHM Graphics Pack">دانلود پک گرافیکی UHM</h2>
+          <p data-fa="بعد از دانلود، از بخش‌های آموزش مرحله‌به‌مرحله نصب کن. قبل از نصب از فایل‌ها بکاپ بگیر." data-en="After download, follow the guide sections step by step. Back up your files first.">
+            بعد از دانلود، از بخش‌های آموزش مرحله‌به‌مرحله نصب کن. قبل از نصب از فایل‌ها بکاپ بگیر.
+          </p>
+          <div class="download-actions">
+            <a class="btn btn-primary btn-lg" href="assets/download/uhm-graphics-pack.zip" download id="downloadPackBtn3">
+              <span class="btn-ico" aria-hidden="true">⬇</span>
+              <span data-fa="دانلود uhm-graphics-pack.zip" data-en="Download uhm-graphics-pack.zip">دانلود uhm-graphics-pack.zip</span>
+            </a>
+            <a class="btn btn-ghost btn-lg" href="pages/csp.html" data-fa="شروع نصب از CSP" data-en="Start install from CSP">شروع نصب از CSP</a>
+          </div>
+          <p class="download-path">
+            <span data-fa="مسیر آپلود فایل پک:" data-en="Pack upload path:">مسیر آپلود فایل پک:</span>
+            <code>assets/download/uhm-graphics-pack.zip</code>
+          </p>
+          <div class="download-missing" id="downloadMissing" hidden>
+            <span data-fa="⚠ فایل پک هنوز روی سرور نیست. بعد از آپلود، دکمه دانلود فعال می‌شود." data-en="⚠ Pack file is not on the server yet. After upload, download will work.">
+              ⚠ فایل پک هنوز روی سرور نیست. بعد از آپلود، دکمه دانلود فعال می‌شود.
+            </span>
+          </div>
+        </div>
+        <div class="download-side">
+          <div class="download-stat"><strong>5</strong><span data-fa="نسخه گرافیکی" data-en="presets">نسخه گرافیکی</span></div>
+          <div class="download-stat"><strong>9</strong><span data-fa="مرحله آموزش" data-en="guide steps">مرحله آموزش</span></div>
+          <div class="download-stat"><strong>ZIP</strong><span data-fa="فرمت فایل" data-en="file format">فرمت فایل</span></div>
         </div>
       </div>
     </section>
@@ -281,6 +367,75 @@
     function openMenu() { document.getElementById("menuToggle")?.click(); }
     document.getElementById("openMenuBtn")?.addEventListener("click", openMenu);
     document.getElementById("openMenuBtn2")?.addEventListener("click", openMenu);
+
+    // Showcase video: hide placeholder when video can play
+    (function () {
+      var video = document.getElementById("showcaseVideo");
+      var ph = document.getElementById("mediaPlaceholder");
+      var stage = document.getElementById("mediaStage");
+      if (!video || !ph) return;
+
+      function ready() {
+        ph.hidden = true;
+        stage && stage.classList.add("has-video");
+      }
+      function missing() {
+        ph.hidden = false;
+        stage && stage.classList.remove("has-video");
+      }
+
+      video.addEventListener("loadeddata", ready);
+      video.addEventListener("canplay", ready);
+      video.addEventListener("error", missing);
+
+      // Probe source existence
+      fetch("assets/media/uhm-showcase.mp4", { method: "HEAD" })
+        .then(function (r) {
+          if (r.ok) {
+            video.load();
+          } else {
+            missing();
+          }
+        })
+        .catch(missing);
+    })();
+
+    // Pack download probe
+    (function () {
+      var path = "assets/download/uhm-graphics-pack.zip";
+      var missing = document.getElementById("downloadMissing");
+      var buttons = [
+        document.getElementById("downloadPackBtn"),
+        document.getElementById("downloadPackBtn2"),
+        document.getElementById("downloadPackBtn3"),
+      ].filter(Boolean);
+
+      fetch(path, { method: "HEAD" })
+        .then(function (r) {
+          if (r.ok) {
+            if (missing) missing.hidden = true;
+            buttons.forEach(function (b) {
+              b.classList.remove("is-disabled");
+              b.removeAttribute("aria-disabled");
+            });
+          } else {
+            throw new Error("missing");
+          }
+        })
+        .catch(function () {
+          if (missing) missing.hidden = false;
+          buttons.forEach(function (b) {
+            b.classList.add("is-disabled");
+            b.setAttribute("aria-disabled", "true");
+            b.addEventListener("click", function (e) {
+              if (b.classList.contains("is-disabled")) {
+                e.preventDefault();
+                alert("فایل پک هنوز آپلود نشده.\nمسیر: assets/download/uhm-graphics-pack.zip");
+              }
+            });
+          });
+        });
+    })();
   </script>
 </body>
 </html>
