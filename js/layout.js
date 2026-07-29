@@ -8,15 +8,16 @@
 
   const sections = [
     { id: "home", href: prefix + "index.html", num: "⌂", fa: "صفحه اصلی", en: "Home" },
-    { id: "csp", href: prefix + "pages/csp.html", num: "1", fa: "CSP Setting", en: "CSP Setting" },
-    { id: "pp-filter", href: prefix + "pages/pp-filter.html", num: "2", fa: "PP Filter", en: "PP Filter" },
-    { id: "pure-config", href: prefix + "pages/pure-config.html", num: "3", fa: "Pure Config", en: "Pure Config" },
-    { id: "video", href: prefix + "pages/video.html", num: "4", fa: "Video Setting", en: "Video Setting" },
-    { id: "chaser", href: prefix + "pages/chaser.html", num: "5", fa: "Chaser Camera", en: "Chaser Camera" },
-    { id: "hud", href: prefix + "pages/hud.html", num: "6", fa: "HUD", en: "HUD" },
-    { id: "spr-light", href: prefix + "pages/spr-light.html", num: "7", fa: "SPR Light", en: "SPR Light" },
-    { id: "neck-fx", href: prefix + "pages/neck-fx.html", num: "8", fa: "Neck FX", en: "Neck FX" },
-    { id: "graphics-test", href: prefix + "pages/graphics-test.html", num: "9", fa: "تست گرافیک", en: "Graphics Test" },
+    { id: "pure-install", href: prefix + "pages/pure-install.html", num: "1", fa: "نصب Pure", en: "Pure Install" },
+    { id: "csp", href: prefix + "pages/csp.html", num: "2", fa: "CSP Setting", en: "CSP Setting" },
+    { id: "pp-filter", href: prefix + "pages/pp-filter.html", num: "3", fa: "PP Filter", en: "PP Filter" },
+    { id: "pure-config", href: prefix + "pages/pure-config.html", num: "4", fa: "Pure Config", en: "Pure Config" },
+    { id: "video", href: prefix + "pages/video.html", num: "5", fa: "Video Setting", en: "Video Setting" },
+    { id: "chaser", href: prefix + "pages/chaser.html", num: "6", fa: "Chaser Camera", en: "Chaser Camera" },
+    { id: "hud", href: prefix + "pages/hud.html", num: "7", fa: "HUD", en: "HUD" },
+    { id: "spr-light", href: prefix + "pages/spr-light.html", num: "8", fa: "SPR Light", en: "SPR Light" },
+    { id: "neck-fx", href: prefix + "pages/neck-fx.html", num: "9", fa: "Neck FX", en: "Neck FX" },
+    { id: "graphics-test", href: prefix + "pages/graphics-test.html", num: "10", fa: "تست گرافیک", en: "Graphics Test" },
   ];
 
   function buildNav(list) {
