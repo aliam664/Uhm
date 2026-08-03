@@ -111,8 +111,43 @@
   const LANG_KEY = "uhm-lang";
   const langBtns = document.querySelectorAll(".lang-btn");
 
+  // Set the visible text of an element without destroying its inner markup
+  // (chips / <strong> / <em>). For rich elements, each child's keyword text is
+  // language-neutral and appears in both the FA and EN strings, so we keep the
+  // children and re-wrap their keywords inside the translated sentence.
+  function setLocalized(el, fa, en, isFa) {
+    const target = isFa ? fa : en;
+    const children = Array.prototype.slice.call(el.children);
+    if (!children.length) {
+      el.textContent = target;
+      return;
+    }
+    let rebuilt = target;
+    let allPlaced = true;
+    children.forEach(function (child) {
+      const kw = child.textContent.trim();
+      if (kw && rebuilt.indexOf(kw) !== -1) {
+        rebuilt = rebuilt.replace(kw, child.outerHTML);
+      } else {
+        allPlaced = false;
+      }
+    });
+    if (allPlaced) {
+      el.innerHTML = rebuilt;
+    } else {
+      // Fallback: keep the children, translated text around them.
+      const frag = document.createDocumentFragment();
+      while (el.firstChild) frag.appendChild(el.firstChild);
+      el.textContent = target;
+      el.appendChild(frag);
+    }
+  }
+
   function applyLang(lang) {
     const isFa = lang !== "en";
+    // Keep the <html> root in sync with <body> for screen readers / a11y + css.
+    root.setAttribute("lang", isFa ? "fa" : "en");
+    root.setAttribute("dir", isFa ? "rtl" : "ltr");
     body.classList.toggle("rtl", isFa);
     body.classList.toggle("ltr", !isFa);
     body.setAttribute("dir", isFa ? "rtl" : "ltr");
@@ -130,7 +165,7 @@
         el.dataset.split = "";
         return;
       }
-      el.textContent = isFa ? fa : en;
+      setLocalized(el, fa, en, isFa);
     });
 
     document.querySelectorAll("[data-fa-html]").forEach(function (el) {
@@ -206,33 +241,4 @@
     });
   });
 
-  // Auto-load gallery images from assets/graphics-test if list is present
-  const gallery = document.getElementById("graphicsGallery");
-  if (gallery && gallery.dataset.autoload === "true") {
-    // Images dropped into assets/graphics-test/ should be listed in gallery-manifest.js
-    // or named via data-images attribute (comma-separated).
-    const list = (gallery.dataset.images || "")
-      .split(",")
-      .map(function (s) {
-        return s.trim();
-      })
-      .filter(Boolean);
-
-    if (list.length) {
-      gallery.innerHTML = "";
-      list.forEach(function (src) {
-        const a = document.createElement("a");
-        a.href = src;
-        a.target = "_blank";
-        a.rel = "noopener";
-        a.className = "gallery-item";
-        const img = document.createElement("img");
-        img.src = src;
-        img.alt = "UHM graphics test";
-        img.loading = "lazy";
-        a.appendChild(img);
-        gallery.appendChild(a);
-      });
-    }
-  }
 })();

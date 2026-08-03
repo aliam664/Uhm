@@ -15,7 +15,7 @@
   <link rel="icon" href="assets/logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500;600;700&family=Vazirmatn:wght@500;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/home.css">
   <script>
@@ -35,43 +35,23 @@
 
   <main class="home-wrap">
     <!-- ========== HERO ========== -->
-    <section class="hx hx-has-video-bg">
+    <section class="hx" id="hx">
       <div class="hx-bg" aria-hidden="true">
-        <!-- Cinematic blurred gameplay video behind hero content -->
-        <div class="hx-video-bg" id="hxVideoBg">
-          <video
-            id="heroBgVideo"
-            class="hx-bg-video"
-            muted
-            loop
-            playsinline
-            autoplay
-            preload="metadata"
-            disablepictureinpicture
-          >
-            <source src="assets/media/uhm-showcase.mp4" type="video/mp4">
-          </video>
-          <div class="hx-video-blur"></div>
-          <div class="hx-video-veil"></div>
-          <div class="hx-video-vignette"></div>
+        <div class="hx-img-bg">
+          <img src="assets/guides/09-graphics-test/0ea7455c-d514-4a10-8627-ba7c14bbf21e.jpg" alt="">
         </div>
-        <div class="hx-mesh"></div>
-        <div class="hx-grid"></div>
-        <div class="hx-beam"></div>
-        <div class="hx-orb hx-orb-a"></div>
-        <div class="hx-orb hx-orb-b"></div>
-        <div class="hx-noise"></div>
+        <div class="hx-scrim"></div>
+        <div class="hx-grid-lines"></div>
       </div>
 
       <div class="hx-inner">
         <div class="hx-copy">
-          <div class="hx-badges">
-            <span class="hx-live"><i></i> Assetto Corsa</span>
-            <span class="hx-ver" title="Pack version">v1.0</span>
-            <a class="hx-tg" href="https://t.me/uhm_009" target="_blank" rel="noopener noreferrer">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-              @uhm_009
-            </a>
+          <div class="hx-topline">
+            <span class="hx-ver mono">Pack v1.0</span>
+            <span class="hx-dot" aria-hidden="true"></span>
+            <span class="mono">Assetto Corsa</span>
+            <span class="hx-dot" aria-hidden="true"></span>
+            <a class="hx-tg mono" href="https://t.me/uhm_009" target="_blank" rel="noopener noreferrer">@uhm_009</a>
           </div>
 
           <p class="hx-kicker" data-fa="پک گرافیکی حرفه‌ای · آموزش کامل" data-en="Pro graphics pack · full guide">پک گرافیکی حرفه‌ای · آموزش کامل</p>
@@ -88,7 +68,6 @@
 
           <div class="hx-cta">
             <a class="btnx btnx-primary" href="assets/download/uhm-graphics-pack.rar" download="uhm-graphics-pack.rar" id="downloadPackBtn">
-              <span class="btnx-shine" aria-hidden="true"></span>
               <span class="btnx-ico" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M5 19h14"/></svg>
               </span>
@@ -110,55 +89,30 @@
             <div class="hx-creator">
               <img src="assets/logo.png" alt="" width="40" height="40">
               <div>
-                <span data-fa="سازنده" data-en="Creator">سازنده</span>
-                <strong>Ali369</strong>
+                <span class="mono" data-fa="سازنده" data-en="Creator">سازنده</span>
+                <strong class="h-en">Ali369</strong>
               </div>
             </div>
             <div class="hx-div" aria-hidden="true"></div>
             <div class="hx-metrics">
-              <div><b data-count="10">0</b><em data-fa="بخش آموزش" data-en="guide parts">بخش آموزش</em></div>
-              <div><b data-count="5">0</b><em data-fa="نسخه گرافیک" data-en="presets">نسخه گرافیک</em></div>
-              <div><b class="en">RAR</b><em data-fa="آماده دانلود" data-en="ready to get">آماده دانلود</em></div>
+              <div><b class="h-en" data-count="10">0</b><em class="mono" data-fa="بخش آموزش" data-en="guide parts">بخش آموزش</em></div>
+              <div><b class="h-en" data-count="5">0</b><em class="mono" data-fa="نسخه گرافیک" data-en="presets">نسخه گرافیک</em></div>
+              <div><b class="h-en">RAR</b><em class="mono" data-fa="آماده دانلود" data-en="ready to get">آماده دانلود</em></div>
             </div>
           </div>
         </div>
 
         <div class="hx-stage">
-          <div class="hx-stage-glow" aria-hidden="true"></div>
-
-          <!-- Logo sits ON TOP of the blurred video atmosphere -->
-          <div class="hx-logo-stack">
-            <div class="hx-logo-glass" aria-hidden="true"></div>
-            <div class="hx-logo-wrap">
-              <div class="hx-ring hx-ring-dash" aria-hidden="true"></div>
-              <div class="hx-ring hx-ring-soft" aria-hidden="true"></div>
-              <img class="hx-logo" src="assets/logo.png" alt="UHM" width="240" height="240">
-            </div>
+          <div class="hx-media" role="img" aria-label="UHM graphics showcase">
+            <img src="assets/guides/09-graphics-test/c439ae92-1ebe-4683-9f65-8713cf560a28.jpg" alt="UHM graphics showcase" width="840" height="520">
+            <span class="hx-media-tag mono">UHM · SHOWCASE</span>
+            <span class="hx-media-ver mono">RX 580 · MEDIUM</span>
           </div>
-
-          <div class="hx-float hx-f1">
-            <span>RX 580</span>
-            <strong>Medium</strong>
-          </div>
-          <div class="hx-float hx-f2">
-            <span data-fa="پیش‌نیاز" data-en="Required">پیش‌نیاز</span>
-            <strong>Pure + Light</strong>
-          </div>
-          <div class="hx-float hx-f3">
-            <span data-fa="نمایش" data-en="Showcase">نمایش</span>
-            <strong data-fa="ویدیو واقعی" data-en="Real video">ویدیو واقعی</strong>
-          </div>
-
-          <a class="hx-watch-chip" href="#showcase">
-            <span class="hx-watch-dot" aria-hidden="true"></span>
-            <span data-fa="پخش واضح ویدیو ↓" data-en="Watch clear video ↓">پخش واضح ویدیو ↓</span>
-          </a>
         </div>
       </div>
 
       <div class="hx-strip" aria-hidden="true">
-        <div class="hx-strip-track">
-          <span>UHM</span><span>Assetto Corsa</span><span>CSP</span><span>Pure</span><span>PP Filter</span><span>Chaser</span><span>Neck FX</span><span>HUD</span>
+        <div class="hx-strip-track mono">
           <span>UHM</span><span>Assetto Corsa</span><span>CSP</span><span>Pure</span><span>PP Filter</span><span>Chaser</span><span>Neck FX</span><span>HUD</span>
         </div>
       </div>
@@ -183,7 +137,7 @@
       <div class="media-stage has-video" id="mediaStage">
         <div class="media-shell">
           <div class="media-frame" id="mediaFrame">
-            <video id="showcaseVideo" class="showcase-video" playsinline preload="auto" controlslist="nodownload" disablepictureinpicture>
+            <video id="showcaseVideo" class="showcase-video" playsinline preload="none" poster="assets/guides/09-graphics-test/0ea7455c-d514-4a10-8627-ba7c14bbf21e.jpg" controlslist="nodownload" disablepictureinpicture>
               <source src="assets/media/uhm-showcase.mp4" type="video/mp4">
             </video>
 

@@ -59,6 +59,11 @@
   }
 
   function play() {
+    // Video is lazy-loaded (preload="none"); ensure a source is ready before
+    // the first play so the seek bar gets a real duration right away.
+    if (video.readyState < 2 && video.querySelector("source")) {
+      video.load();
+    }
     var p = video.play();
     if (p && p.catch) p.catch(function () {});
   }
