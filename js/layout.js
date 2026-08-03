@@ -64,6 +64,12 @@
     '<span class="brand-name">UHM</span>' +
     '<span class="brand-tag" data-fa="پک گرافیکی استو" data-en="AC Graphics Pack">پک گرافیکی استو</span>' +
     "</span></a></div>" +
+    '<div class="header-nav">' +
+    '<a href="' + prefix + 'index.html#download" data-fa="دانلود" data-en="Download">دانلود</a>' +
+    '<a href="' + prefix + 'index.html#showcase" data-fa="ویدیو" data-en="Video">ویدیو</a>' +
+    '<a href="' + prefix + 'index.html#guides" data-fa="آموزش" data-en="Guides">آموزش</a>' +
+    '<a href="' + prefix + 'index.html#faq" data-fa="سوالات" data-en="FAQ">سوالات</a>' +
+    '</div>' +
     '<div class="header-right">' +
     '<a class="header-tg" href="https://t.me/uhm_009" target="_blank" rel="noopener noreferrer" title="Telegram @uhm_009">@uhm_009</a>' +
     '<button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Theme">' +
@@ -73,6 +79,7 @@
     '<div class="lang-switch" role="group" aria-label="Language">' +
     '<button type="button" class="lang-btn active" data-lang="fa">FA</button>' +
     '<button type="button" class="lang-btn" data-lang="en">EN</button>' +
+    '<a class="btnx btnx-primary btnx-sm header-cta" href="' + prefix + 'index.html" data-fa="دانلود" data-en="Download">دانلود</a>' +
     "</div></div></header>";
 
   const sidebarHTML =
@@ -117,6 +124,18 @@
   window.UHM.sections = sections;
   window.UHM.prefix = prefix;
 
+  function savedLang() {
+    let l = "fa";
+    try {
+      l = localStorage.getItem("uhm-lang") || "fa";
+    } catch (_) {}
+    return l === "en" ? "en" : "fa";
+  }
+
+  function localizedText(fa, en) {
+    return savedLang() === "en" ? en : fa;
+  }
+
   window.UHM.getPageNav = function (currentId) {
     const guides = sections.slice(1);
     const idx = guides.findIndex(function (s) {
@@ -125,27 +144,42 @@
     if (idx < 0) return "";
     const prev = guides[idx - 1];
     const next = guides[idx + 1];
+    const isEn = savedLang() === "en";
     let html = '<nav class="page-nav" aria-label="Pagination">';
     if (prev) {
       html +=
         '<a href="' +
         prev.href +
-        '"><span data-fa="→ قبلی: " data-en="← Prev: ">→ قبلی: </span>' +
+        '"><span data-fa="→ قبلی: " data-en="← Prev: ">' +
+        localizedText("→ قبلی: ", "← Prev: ") +
+        '</span><span data-fa="' +
         prev.fa +
-        "</a>";
+        '" data-en="' +
+        prev.en +
+        '">' +
+        (isEn ? prev.en : prev.fa) +
+        "</span></a>";
     } else {
       html +=
         '<a href="' +
         prefix +
-        'index.html"><span data-fa="→ صفحه اصلی" data-en="← Home">→ صفحه اصلی</span></a>';
+        'index.html"><span data-fa="→ صفحه اصلی" data-en="← Home">' +
+        localizedText("→ صفحه اصلی", "← Home") +
+        "</span></a>";
     }
     if (next) {
       html +=
         '<a href="' +
         next.href +
-        '"><span data-fa="بعدی: " data-en="Next: ">بعدی: </span>' +
+        '"><span data-fa="بعدی: " data-en="Next: ">' +
+        localizedText("بعدی: ", "Next: ") +
+        '</span><span data-fa="' +
         next.fa +
-        " ←</a>";
+        '" data-en="' +
+        next.en +
+        '">' +
+        (isEn ? next.en : next.fa) +
+        " ←</span></a>";
     } else {
       html += "<span></span>";
     }
@@ -155,6 +189,18 @@
 
   window.UHM.mountPageNav = function (currentId) {
     const el = document.getElementById("pageNav");
-    if (el) el.outerHTML = window.UHM.getPageNav(currentId);
+    if (!el) return;
+    el.outerHTML = window.UHM.getPageNav(currentId);
+    // The nav is injected after applyLang() has already run, so sync its text
+    // with the saved language here.
+    const nav = document.querySelector(".page-nav");
+    if (nav) {
+      const isEn = savedLang() === "en";
+      nav.querySelectorAll("[data-fa]").forEach(function (node) {
+        const fa = node.getAttribute("data-fa");
+        const en = node.getAttribute("data-en") || fa;
+        node.textContent = isEn ? en : fa;
+      });
+    }
   };
 })();
