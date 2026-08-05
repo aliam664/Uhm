@@ -15,7 +15,7 @@
   <link rel="icon" href="assets/logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500;600;700&family=Vazirmatn:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/home.css">
   <script>
@@ -31,7 +31,9 @@
   </script>
 </head>
 <body class="rtl page-home home-v3" data-page="home" data-depth="0">
-  <div id="site-chrome"></div>
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="custom-cursor-dot" id="cursorDot"></div>
+    <div id="site-chrome"></div>
 
   <main class="home-wrap">
     <!-- ========== HERO ========== -->
@@ -54,12 +56,12 @@
             <a class="hx-tg mono" href="https://t.me/uhm_009" target="_blank" rel="noopener noreferrer">@uhm_009</a>
           </div>
 
-          <p class="hx-kicker" data-fa="پک گرافیکی حرفه‌ای · آموزش کامل" data-en="Pro graphics pack · full guide">پک گرافیکی حرفه‌ای · آموزش کامل</p>
+          <p class="hx-kicker" data-fa="پک گرافیکی کامل · آموزش مرحله‌به‌مرحله" data-en="Full graphics pack · step guide">پک گرافیکی کامل · آموزش مرحله‌به‌مرحله</p>
 
           <h1 class="hx-title">
             <span class="hx-brand">UHM</span>
-            <span class="hx-title-line" data-fa="گرافیک استو را" data-en="Take Assetto Corsa">گرافیک استو را</span>
-            <span class="hx-title-grad" data-fa="یک سطح بالاتر ببر" data-en="to the next level">یک سطح بالاتر ببر</span>
+            <span class="hx-title-line" data-fa="تجربه بصری استو را" data-en="Redefine Assetto Corsa">تجربه بصری استو را</span>
+            <span class="hx-title-grad" data-fa="دوباره تعریف کنید" data-en="visual experience">دوباره تعریف کنید</span>
           </h1>
 
           <p class="hx-lead" data-fa="دانلود پک، تماشای نمایش واقعی بازی، و نصب مرحله‌به‌مرحله — همه در یک جا. نسخه مناسب سخت‌افزارت را انتخاب کن و شروع کن." data-en="Download the pack, watch real gameplay, and install step by step — all in one place. Pick the right preset for your hardware and start.">
@@ -353,72 +355,104 @@
       <div class="guide-board stagger">
         <a class="gcard gcard-hot" href="pages/pure-install.html">
           <span class="gnum">01</span>
-          <span class="gtitle" data-fa="نصب Pure" data-en="Pure Install">نصب Pure</span>
-          <span class="gdesc" data-fa="آموزش ریختن ماد Pure + ویدیو" data-en="Install Pure mod + video">آموزش ریختن ماد Pure + ویدیو</span>
-          <span class="gtag" data-fa="ویدیو" data-en="Video">ویدیو</span>
+          <div class="gcontent">
+            <span class="gtitle" data-fa="نصب Pure" data-en="Pure Install">نصب Pure</span>
+            <span class="gdesc" data-fa="آموزش ریختن ماد Pure + ویدیو" data-en="Install Pure mod + video">آموزش ریختن ماد Pure + ویدیو</span>
+          </div>
           <span class="ggo" aria-hidden="true">←</span>
         </a>
         <a class="gcard gcard-hot" href="pages/csp.html">
           <span class="gnum">02</span>
-          <span class="gtitle en">CSP Setting</span>
-          <span class="gdesc" data-fa="پریست Custom Shaders Patch" data-en="Custom Shaders Patch preset">پریست Custom Shaders Patch</span>
-          <span class="gtag" data-fa="با عکس" data-en="Photos">با عکس</span>
+          <div class="gcontent">
+            <span class="gtitle en">CSP Setting</span>
+            <span class="gdesc" data-fa="پریست Custom Shaders Patch" data-en="Custom Shaders Patch preset">پریست Custom Shaders Patch</span>
+          </div>
           <span class="ggo" aria-hidden="true">←</span>
         </a>
         <a class="gcard" href="pages/pp-filter.html">
           <span class="gnum">03</span>
-          <span class="gtitle en">PP Filter</span>
-          <span class="gdesc" data-fa="فیلتر پس‌پردازش" data-en="Post-process filter">فیلتر پس‌پردازش</span>
+          <div class="gcontent">
+            <span class="gtitle en">PP Filter</span>
+            <span class="gdesc" data-fa="فیلتر پس‌پردازش" data-en="Post-process filter">فیلتر پس‌پردازش</span>
+          </div>
           <span class="ggo" aria-hidden="true">←</span>
         </a>
         <a class="gcard gcard-hot" href="pages/pure-config.html">
           <span class="gnum">04</span>
-          <span class="gtitle en">Pure Config</span>
-          <span class="gdesc" data-fa="کانفیگ Pure داخل بازی" data-en="In-game Pure config">کانفیگ Pure داخل بازی</span>
-          <span class="gtag" data-fa="با عکس" data-en="Photos">با عکس</span>
+          <div class="gcontent">
+            <span class="gtitle en">Pure Config</span>
+            <span class="gdesc" data-fa="کانفیگ Pure داخل بازی" data-en="In-game Pure config">کانفیگ Pure داخل بازی</span>
+          </div>
           <span class="ggo" aria-hidden="true">←</span>
         </a>
         <a class="gcard gcard-hot" href="pages/video.html">
           <span class="gnum">05</span>
-          <span class="gtitle en">Video Setting</span>
-          <span class="gdesc" data-fa="پریست تنظیمات ویدیو" data-en="Video settings preset">پریست تنظیمات ویدیو</span>
-          <span class="gtag" data-fa="با عکس" data-en="Photos">با عکس</span>
+          <div class="gcontent">
+            <span class="gtitle en">Video Setting</span>
+            <span class="gdesc" data-fa="پریست تنظیمات ویدیو" data-en="Video settings preset">پریست تنظیمات ویدیو</span>
+          </div>
           <span class="ggo" aria-hidden="true">←</span>
         </a>
         <a class="gcard gcard-hot" href="pages/chaser.html">
           <span class="gnum">06</span>
-          <span class="gtitle en">Chaser Camera</span>
-          <span class="gdesc" data-fa="دوربین سوم‌شخص + زاویه‌ها" data-en="Third-person camera angles">دوربین سوم‌شخص + زاویه‌ها</span>
-          <span class="gtag" data-fa="با عکس" data-en="Photos">با عکس</span>
+          <div class="gcontent">
+            <span class="gtitle en">Chaser Camera</span>
+            <span class="gdesc" data-fa="دوربین سوم‌شخص + زاویه‌ها" data-en="Third-person camera angles">دوربین سوم‌شخص + زاویه‌ها</span>
+          </div>
           <span class="ggo" aria-hidden="true">←</span>
         </a>
         <a class="gcard gcard-hot" href="pages/hud.html">
           <span class="gnum">07</span>
-          <span class="gtitle en">HUD</span>
-          <span class="gdesc" data-fa="رابط Forza Horizon 4" data-en="Forza Horizon 4 HUD">رابط Forza Horizon 4</span>
-          <span class="gtag" data-fa="با عکس" data-en="Photos">با عکس</span>
+          <div class="gcontent">
+            <span class="gtitle en">HUD</span>
+            <span class="gdesc" data-fa="رابط Forza Horizon 4" data-en="Forza Horizon 4 HUD">رابط Forza Horizon 4</span>
+          </div>
           <span class="ggo" aria-hidden="true">←</span>
         </a>
         <a class="gcard" href="pages/spr-light.html">
           <span class="gnum">08</span>
-          <span class="gtitle en">SPR Light</span>
-          <span class="gdesc" data-fa="نور ترک شوتو / SPR" data-en="Shuto / SPR track lights">نور ترک شوتو / SPR</span>
+          <div class="gcontent">
+            <span class="gtitle en">SPR Light</span>
+            <span class="gdesc" data-fa="نور ترک شوتو / SPR" data-en="Shuto / SPR track lights">نور ترک شوتو / SPR</span>
+          </div>
           <span class="ggo" aria-hidden="true">←</span>
         </a>
         <a class="gcard gcard-hot" href="pages/neck-fx.html">
           <span class="gnum">09</span>
-          <span class="gtitle en">Neck FX</span>
-          <span class="gdesc" data-fa="Cockpit Neck FX + لینک نصب" data-en="Cockpit Neck FX + install link">Cockpit Neck FX + لینک نصب</span>
-          <span class="gtag" data-fa="با عکس" data-en="Photos">با عکس</span>
+          <div class="gcontent">
+            <span class="gtitle en">Neck FX</span>
+            <span class="gdesc" data-fa="Cockpit Neck FX + لینک نصب" data-en="Cockpit Neck FX + install link">Cockpit Neck FX + لینک نصب</span>
+          </div>
           <span class="ggo" aria-hidden="true">←</span>
         </a>
         <a class="gcard gcard-wide gcard-hot" href="pages/graphics-test.html">
           <span class="gnum">10</span>
-          <span class="gtitle" data-fa="تست گرافیک" data-en="Graphics Test">تست گرافیک</span>
-          <span class="gdesc" data-fa="گالری اسکرین‌شات از داخل بازی" data-en="In-game screenshot gallery">گالری اسکرین‌شات از داخل بازی</span>
-          <span class="gtag" data-fa="با عکس" data-en="Photos">با عکس</span>
+          <div class="gcontent">
+            <span class="gtitle" data-fa="تست گرافیک" data-en="Graphics Test">تست گرافیک</span>
+            <span class="gdesc" data-fa="گالری اسکرین‌شات از داخل بازی" data-en="In-game screenshot gallery">گالری اسکرین‌شات از داخل بازی</span>
+          </div>
           <span class="ggo" aria-hidden="true">←</span>
         </a>
+      </div>
+    </section>
+
+    <!-- ========== CRAFT ========== -->
+    <section class="hs reveal" id="craft">
+      <div class="craft-grid">
+        <div class="craft-content">
+          <p class="hs-eyebrow" data-fa="دقت در جزئیات" data-en="Attention to detail">دقت در جزئیات</p>
+          <h2 data-fa="تیون شده با دست، برای هر فریم" data-en="Hand-tuned for every frame">تیون شده با دست، برای هر فریم</h2>
+          <p data-fa="این پک صرفاً یک مجموعه تنظیمات نیست. هر پارامتر در CSP و Pure ساعت‌ها تست شده تا تعادل واقعی بین زیبایی بصری و عملکرد سیستم حفظ شود. ما به دنبال واقعی‌ترین تجربه هستیم، نه فقط رنگ‌های اشباع شده." data-en="This pack isn't just a collection of settings. Every parameter in CSP and Pure has been tested for hours to maintain a real balance between visual beauty and performance. We aim for the most realistic experience, not just saturated colors.">
+            این پک صرفاً یک مجموعه تنظیمات نیست. هر پارامتر در CSP و Pure ساعت‌ها تست شده تا تعادل واقعی بین زیبایی بصری و عملکرد سیستم حفظ شود. ما به دنبال واقعی‌ترین تجربه هستیم، نه فقط رنگ‌های اشباع شده.
+          </p>
+          <div class="craft-stats">
+            <div class="cs-item"><b>120+</b><span>ساعت تست</span></div>
+            <div class="cs-item"><b>400+</b><span>پارامتر دستی</span></div>
+          </div>
+        </div>
+        <div class="craft-visual">
+          <img src="assets/guides/09-graphics-test/830c39f4-b1ff-4d2b-94a0-7ea5549e7f28.jpg" alt="Tuning" class="craft-img">
+        </div>
       </div>
     </section>
 

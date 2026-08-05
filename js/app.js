@@ -43,6 +43,31 @@
     applyTheme(cur === "dark" ? "light" : "dark");
   });
 
+  // Custom Cursor
+  const cursor = document.getElementById("cursor");
+  const cursorDot = document.getElementById("cursorDot");
+  if (cursor && cursorDot && window.matchMedia("(pointer:fine)").matches) {
+    document.addEventListener("mousemove", (e) => {
+      cursor.style.left = e.clientX + "px";
+      cursor.style.top = e.clientY + "px";
+      cursorDot.style.left = e.clientX + "px";
+      cursorDot.style.top = e.clientY + "px";
+    });
+
+    document.querySelectorAll("a, button, .gallery-item, .check-item, .gcard, .step-card, .preset").forEach((el) => {
+      el.addEventListener("mouseenter", () => {
+        cursor.style.transform = "translate(-50%, -50%) scale(2.5)";
+        cursor.style.backgroundColor = "rgba(255, 62, 0, 0.1)";
+        cursor.style.borderColor = "transparent";
+      });
+      el.addEventListener("mouseleave", () => {
+        cursor.style.transform = "translate(-50%, -50%) scale(1)";
+        cursor.style.backgroundColor = "transparent";
+        cursor.style.borderColor = "var(--accent)";
+      });
+    });
+  }
+
   // Header shadow on scroll
   const header = document.getElementById("siteHeader");
   if (header) {
