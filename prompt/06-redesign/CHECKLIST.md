@@ -1,5 +1,7 @@
 # 06 — چک‌لیست تحویل بازطراحی
 
+> 🧠 نسخه هوشمند + مبتنی بر جستجو را ببین: [`PRO-BUILDER-PROMPT.md`](./PRO-BUILDER-PROMPT.md)
+
 ## عملکرد
 
 - [ ] دانلود پک کار می‌کند (`uhm-graphics-pack.rar`)  
