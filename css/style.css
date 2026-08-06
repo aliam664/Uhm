@@ -350,6 +350,7 @@ body.ltr .btnx {
 body.rtl .scroll-progress { transform-origin: right center; }
 
 /* ---------- Header ---------- */
+/* ---------- Header ---------- */
 .site-header {
   position: fixed;
   top: 0;
@@ -363,41 +364,44 @@ body.rtl .scroll-progress { transform-origin: right center; }
   padding: 0 var(--space-m);
   background: var(--header-bg);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--line-2);
   transition: all 0.4s var(--ease);
 }
 
-@media (max-width: 720px) {
-  .site-header {
-    height: 70px;
-  }
-  .brand-name {
-    font-size: 1.4rem;
-  }
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
 }
 
 .site-header.scrolled {
   height: 60px;
-  background: rgba(10, 10, 11, 0.95);
+  background: rgba(3, 5, 10, 0.95);
 }
 
-.brand-name {
-  font-family: var(--font-en);
-  font-size: 1.8rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--heading);
-  line-height: 1;
+@media (max-width: 720px) {
+  .site-header {
+    height: 65px;
+    padding: 0 4vw;
+  }
+  .header-nav { display: none; }
+  .header-tg { display: none; }
+  .header-right {
+    gap: 0.4rem;
+  }
+  .theme-toggle, .lang-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 0.7rem;
+  }
+  .brand-name {
+    font-size: 1.1rem;
+  }
+  .brand-logo {
+    width: 32px;
+    height: 32px;
+  }
 }
-
-.header-nav a {
-  font-family: var(--font-en);
-  font-weight: 600;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
-  transition: color 0.3s ease;
 }
 
 .header-nav a:hover,
@@ -946,22 +950,27 @@ body.rtl .footer-brand strong {
 .to-top:hover { border-color: var(--accent); color: var(--accent-bright); }
 
 /* ---------- Video player ---------- */
-.media-stage { position: relative; }
-.media-shell {
-  position: relative;
-  border-radius: 4px;
-  padding: 2px;
-  background: linear-gradient(135deg, var(--line-2), var(--line) 40%, var(--accent) 130%);
-  box-shadow: var(--shadow);
-}
 .media-frame {
   position: relative;
-  border-radius: 3px;
+  border-radius: 0;
   overflow: hidden;
   background: #000;
   aspect-ratio: 16 / 9;
   min-height: 240px;
   isolation: isolate;
+}
+
+@media (max-width: 720px) {
+  .media-frame {
+    min-height: 200px;
+  }
+  .video-overlay-title {
+    font-size: 1rem;
+  }
+  .video-play-btn {
+    width: 60px;
+    height: 60px;
+  }
 }
 .showcase-video { width: 100%; height: 100%; display: block; object-fit: contain; background: #000; }
 
