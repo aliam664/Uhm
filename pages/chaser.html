@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بخش ۶ — Chaser Camera | UHM Graphics Pack</title>
+  <meta name="description" content="آموزش نصب Chaser Camera (KirbyCam) برای پک گرافیکی UHM.">
+  <link rel="icon" type="image/png" href="../assets/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>window.UHM_BASE="../";</script>
+</head>
+<body data-page="chaser" data-lang="fa">
+
+  <div id="scroll-progress"></div>
+  <div id="header-mount"></div>
+  <div id="sidebar-mount"></div>
+
+  <main class="guide-wrap">
+    <div class="guide-head">
+      <nav class="crumbs"><a href="../index.html">خانه</a><span class="sep">/</span><span>بخش ۶</span></nav>
+      <h1 class="guide-title"><span class="g-num">06</span><span data-fa="Chaser Camera" data-en="Chaser Camera"></span><span class="badge-photo">🖼 با عکس</span></h1>
+      <p class="guide-desc" data-fa="راه‌اندازی دوربین سوم‌شخص با اسکریپت KirbyCam." data-en="Set up the third-person chase camera with the KirbyCam script."></p>
+      <div class="guide-meta"><span class="chip blue" data-fa="پیش‌نیاز: بخش ۲ (CSP)" data-en="Requires: Section 2 (CSP)"></span></div>
+    </div>
+
+    <div class="guide-body">
+      <h3 data-fa="۱) کپی فایل" data-en="1) Copy the file"></h3>
+      <div class="path-box"><code id="ch-path" data-full="...\SteamLibrary\steamapps\common\assettocorsa\extension\lua\chaser-camera">...\SteamLibrary\steamapps\common\assettocorsa\extension\lua\chaser-camera</code><button class="copy-btn" data-copy="#ch-path">📋</button></div>
+
+      <h3 data-fa="۲) فعال‌سازی در CSP → Chase" data-en="2) Enable in CSP → Chase"></h3>
+      <div class="path-box"><code id="ch-ui" data-full="SETTINGS → Custom Shaders Patch → CHASE">SETTINGS → Custom Shaders Patch → CHASE</code><button class="copy-btn" data-copy="#ch-ui">📋</button></div>
+      <p data-fa="این موارد باید تنظیم شوند:" data-en="These must be set:"></p>
+      <ul class="plain">
+        <li data-fa="Extension = <strong>Active</strong>" data-en="Extension = <strong>Active</strong>"></li>
+        <li data-fa="Alternative script for second camera = <strong>Active</strong>" data-en="Alternative script for second camera = <strong>Active</strong>"></li>
+        <li data-fa="Script هر دو = <strong>KirbyCam</strong>" data-en="Script for both = <strong>KirbyCam</strong>"></li>
+      </ul>
+      <div class="warning"><span class="w-ico">⚠️</span><div><strong data-fa="اگر KirbyCam نباشد" data-en="If KirbyCam is missing"></strong>
+        <span data-fa="دوربین پک درست کار نمی‌کند." data-en="the pack camera won't work correctly."></span></div></div>
+
+      <h3 data-fa="۳) زاویه سوم‌شخص" data-en="3) Third-person angle"></h3>
+      <div class="path-box"><code id="ch-ui2" data-full="SETTINGS → Assetto Corsa → Chase Camera">SETTINGS → Assetto Corsa → Chase Camera</code><button class="copy-btn" data-copy="#ch-ui2">📋</button></div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><h4 data-fa="First camera" data-en="First camera"></h4><p class="en" data-fa="Distance ≈ 3.35 m · Height ≈ 1.1 m · Pitch ≈ -1.6°" data-en="Distance ≈ 3.35 m · Height ≈ 1.1 m · Pitch ≈ -1.6°"></p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><h4 data-fa="Second camera" data-en="Second camera"></h4><p class="en" data-fa="Distance ≈ 4.31 m · Height ≈ 1.7 m · Pitch ≈ -0.4°" data-en="Distance ≈ 4.31 m · Height ≈ 1.7 m · Pitch ≈ -0.4°"></p></div></div>
+      </div>
+
+      <h3 data-fa="عکس‌های راهنما" data-en="Reference images"></h3>
+      <figure class="guide-shot"><img class="js-lightbox" src="../assets/guides/05-chaser/chaser-camera-setting.jpg" data-caption="CSP Chase · Active + KirbyCam" alt="CSP Chase"><figcaption data-fa="CSP Chase · Active + KirbyCam" data-en="CSP Chase · Active + KirbyCam"></figcaption></figure>
+      <figure class="guide-shot"><img class="js-lightbox" src="../assets/guides/05-chaser/first-camera-angle.jpg" data-caption="First camera" alt="First camera"><figcaption data-fa="Assetto Corsa → Chase Camera → First" data-en="Assetto Corsa → Chase Camera → First"></figcaption></figure>
+      <figure class="guide-shot"><img class="js-lightbox" src="../assets/guides/05-chaser/second-camera-angle.jpg" data-caption="Second camera" alt="Second camera"><figcaption data-fa="Assetto Corsa → Chase Camera → Second" data-en="Assetto Corsa → Chase Camera → Second"></figcaption></figure>
+    </div>
+
+    <div id="pager-mount"></div>
+  </main>
+
+  <div id="footer-mount"></div>
+  <button class="to-top" id="to-top" aria-label="برو بالا">↑</button>
+  <div class="toast" id="toast"></div>
+
+  <script src="../js/layout.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/gallery.js"></script>
+</body>
+</html>
