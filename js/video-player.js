@@ -4,6 +4,12 @@
 
   var video = document.getElementById("showcaseVideo");
   var frame = document.getElementById("mediaFrame");
+  if (!video || !frame) return;
+
+  // The Pure tutorial page uses the same element ids but with NATIVE controls
+  // and its own markup — the custom player must not hijack it.
+  if (video.hasAttribute("controls")) return;
+
   var overlay = document.getElementById("videoOverlay");
   var bar = document.getElementById("videoBar");
   var btnPlay = document.getElementById("vPlay");
@@ -13,7 +19,6 @@
   var fill = document.getElementById("vFill");
   var buf = document.getElementById("vBuf");
   var timeEl = document.getElementById("vTime");
-  if (!video || !frame) return;
 
   var icoPlay = btnPlay ? btnPlay.querySelector(".ico-play") : null;
   var icoPause = btnPlay ? btnPlay.querySelector(".ico-pause") : null;

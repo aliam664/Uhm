@@ -137,9 +137,9 @@
   const langBtns = document.querySelectorAll(".lang-btn");
 
   // Set the visible text of an element without destroying its inner markup
-  // (chips / <strong> / <em>). For rich elements, each child's keyword text is
-  // language-neutral and appears in both the FA and EN strings, so we keep the
-  // children and re-wrap their keywords inside the translated sentence.
+  // (chips / <strong> / <em>). Each child's keyword text is language-neutral
+  // and appears in both the FA and EN strings, so we re-wrap the children at
+  // the keyword positions inside the translated sentence.
   function setLocalized(el, fa, en, isFa) {
     const target = isFa ? fa : en;
     const children = Array.prototype.slice.call(el.children);
@@ -147,25 +147,34 @@
       el.textContent = target;
       return;
     }
+    // Work longest keywords first so a short keyword ("Pure") can never steal
+    // the occurrence of a longer one ("Pure Config") inside the sentence.
+    const items = children
+      .map(function (child, i) {
+        return { i: i, kw: (child.textContent || "").trim(), html: child.outerHTML };
+      })
+      .filter(function (it) { return it.kw; })
+      .sort(function (a, b) { return b.kw.length - a.kw.length; });
+
     let rebuilt = target;
-    let allPlaced = true;
-    children.forEach(function (child) {
-      const kw = child.textContent.trim();
-      if (kw && rebuilt.indexOf(kw) !== -1) {
-        rebuilt = rebuilt.replace(kw, child.outerHTML);
+    const pending = []; // not found in the translated string
+    items.forEach(function (it) {
+      const marker = "\uE000" + it.i + "\uE001";
+      const idx = rebuilt.indexOf(it.kw);
+      if (idx !== -1) {
+        rebuilt = rebuilt.slice(0, idx) + marker + rebuilt.slice(idx + it.kw.length);
+        pending.push({ marker: marker, html: it.html });
       } else {
-        allPlaced = false;
+        pending.push({ marker: null, html: it.html });
       }
     });
-    if (allPlaced) {
-      el.innerHTML = rebuilt;
-    } else {
-      // Fallback: keep the children, translated text around them.
-      const frag = document.createDocumentFragment();
-      while (el.firstChild) frag.appendChild(el.firstChild);
-      el.textContent = target;
-      el.appendChild(frag);
-    }
+    // Swap markers back to the real child HTML (markers are unique private-use
+    // characters, so they can never match a keyword again).
+    pending.forEach(function (p) {
+      if (p.marker) rebuilt = rebuilt.split(p.marker).join(p.html);
+      else rebuilt += p.html;
+    });
+    el.innerHTML = rebuilt;
   }
 
   function applyLang(lang) {

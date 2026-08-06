@@ -73,12 +73,21 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   color: var(--accent-bright);
   margin-bottom: 2rem;
   opacity: 0.8;
+}
+
+.hx-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
 }
 
 .hx-status-badge {
@@ -103,6 +112,14 @@
   background: var(--white);
   border-radius: 50%;
   animation: pulse 2s infinite;
+}
+
+.hx-ver {
+  color: var(--text-muted);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.62rem;
 }
 
 @keyframes pulse {
@@ -175,6 +192,15 @@ body.ltr .hx-lead {
   padding-left: 2rem;
 }
 
+/* Hero CTA row (base rule was missing → desktop buttons had no flex layout) */
+.hx-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+
 .hx-stage {
   position: absolute;
   top: 50%;
@@ -194,6 +220,7 @@ body.rtl .hx-stage { left: auto; right: 60%; transform: translateY(-50%) rotate(
 }
 
 .hx-media {
+  position: relative;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 50px 100px -20px rgba(0,0,0,0.7);
@@ -233,6 +260,12 @@ body.rtl .hx-media-tag { right: 0; left: auto; }
   border-radius: 50%;
   border: 1px solid var(--line-2);
   padding: 4px;
+}
+.hx-div {
+  width: 1px;
+  height: 44px;
+  background: var(--line-2);
+  flex-shrink: 0;
 }
 
 .hx-metrics {
@@ -394,6 +427,18 @@ body.rtl .hx-strip-track {
   flex-wrap: wrap;
 }
 
+.media-chip {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+  border-radius: 20px;
+  padding: 0.35rem 0.85rem;
+}
+
 @media (max-width: 720px) {
   .media-shell {
     border-radius: 12px;
@@ -505,6 +550,26 @@ body.rtl .hx-strip-track {
   pointer-events: none;
 }
 
+.dl-glow {
+  position: absolute;
+  top: -30%;
+  left: 20%;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+  filter: blur(60px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.dl-text {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.9;
+  max-width: 46rem;
+}
+
 .dl-panel::after {
   content: "UHM";
   position: absolute;
@@ -524,6 +589,26 @@ body.rtl .hx-strip-track {
 
 .dl-actions {
   margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.dl-note {
+  margin-top: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+}
+.dl-note code {
+  font-family: var(--font-mono);
+  color: var(--accent-bright);
+  background: var(--accent-soft);
+  border: 1px solid var(--line-2);
+  border-radius: 3px;
+  padding: 0.15rem 0.45rem;
+  direction: ltr;
+  display: inline-block;
 }
 
 .dl-side {
@@ -672,6 +757,125 @@ body.rtl .check-item {
     gap: 0.75rem;
   }
 }
+
+/* Checklist progress UI (was missing → progress number/bar/hint invisible) */
+.checklist-progress {
+  font-family: var(--font-en);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-bright);
+  background: var(--accent-soft);
+  border: 1px solid var(--line-2);
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.checklist-bar {
+  margin-top: 2rem;
+  height: 6px;
+  border-radius: 20px;
+  background: var(--surface);
+  overflow: hidden;
+}
+.checklist-bar i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent-deep), var(--accent-bright));
+  border-radius: 20px;
+  transition: width 0.5s var(--ease);
+}
+.checklist-hint {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+.checklist-hint.is-done {
+  color: var(--accent-bright);
+  font-weight: 700;
+}
+
+/* Quick start — 3 step cards (styles were missing entirely) */
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.step-card {
+  position: relative;
+  background: var(--bg-raise);
+  border: 1px solid var(--line-2);
+  border-radius: 14px;
+  padding: 2.25rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  transition: all 0.35s var(--ease);
+  overflow: hidden;
+}
+.step-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-6px);
+}
+.step-card-hot {
+  border-color: var(--line-accent);
+  background: linear-gradient(160deg, var(--accent-soft), var(--bg-raise) 62%);
+}
+.step-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.step-n {
+  font-family: var(--font-en);
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  opacity: 0.9;
+}
+.step-line {
+  flex: 1;
+  height: 1px;
+  background: var(--line-2);
+}
+.step-card h3 {
+  font-family: var(--font-fa-display);
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: var(--heading);
+}
+.step-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+@media (max-width: 980px) {
+  .step-grid { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+/* =====================================================================
+   Presets (was broken: selectors were missing → section had no styles)
+   ===================================================================== */
+.preset-rail {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+
+.preset {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: var(--bg-raise);
+  border: 1px solid var(--line-2);
+  border-radius: 14px;
+  padding: 2.75rem 1.25rem 2.25rem;
+  min-height: 165px;
   text-align: center;
   transition: all 0.3s var(--ease);
 }
@@ -682,12 +886,24 @@ body.rtl .check-item {
 }
 
 .preset strong {
+  font-family: var(--font-en);
   font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--heading);
   margin-bottom: 0.5rem;
+  display: block;
+  line-height: 1.1;
+}
+
+.preset span {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .preset-hot {
   border-color: var(--accent);
+  background: linear-gradient(165deg, var(--accent-soft), var(--bg-raise) 65%);
   position: relative;
   transform: scale(1.05);
   z-index: 2;
@@ -695,12 +911,20 @@ body.rtl .check-item {
 }
 
 .preset-badge {
+  position: absolute;
   top: -12px;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 20px;
   padding: 0.4rem 1rem;
   font-size: 0.65rem;
+  font-family: var(--font-fa);
+  font-weight: 700;
+  background: var(--accent);
+  color: #fff;
+  white-space: nowrap;
+  border: 1px solid var(--accent);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
 }
 
 /* =====================================================================
@@ -855,6 +1079,29 @@ body.rtl .gcard:hover { transform: translateX(10px); }
   color: var(--text-muted);
 }
 
+/* hot cards: accent numbering */
+.gcard-hot .gnum {
+  color: var(--accent);
+  opacity: 0.55;
+}
+.gcard-hot:hover .gnum {
+  opacity: 1;
+}
+
+.ggo {
+  font-family: var(--font-en);
+  font-size: 1.6rem;
+  color: var(--text-dim);
+  transition: all 0.4s var(--ease);
+  flex-shrink: 0;
+  line-height: 1;
+}
+.gcard:hover .ggo {
+  color: var(--accent);
+  transform: translateX(-6px);
+}
+body.rtl .gcard:hover .ggo { transform: translateX(6px); }
+
 .gcard-wide {
   grid-column: span 2;
 }
@@ -966,6 +1213,7 @@ body.rtl .gcard:hover { transform: translateX(10px); }
    Creator
    ===================================================================== */
 .creator-panel {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 3rem;
@@ -973,6 +1221,19 @@ body.rtl .gcard:hover { transform: translateX(10px); }
   border: 1px solid var(--accent-soft);
   padding: 4rem;
   border-radius: 12px;
+  overflow: hidden;
+}
+.creator-glow {
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+  filter: blur(70px);
+  opacity: 0.45;
+  pointer-events: none;
 }
 
 @media (max-width: 720px) {
@@ -1024,6 +1285,9 @@ body.rtl .gcard:hover { transform: translateX(10px); }
   border-radius: 40px;
   transition: transform 0.6s var(--ease);
 }
+/* show-state was missing → the sticky dock never appeared */
+.sticky-dock.is-on { transform: translate(-50%, 0); }
+body.has-dock { padding-bottom: 5.5rem; }
 
 .sticky-dock-inner {
   display: flex;
@@ -1087,12 +1351,35 @@ body.rtl .sticky-dock-inner {
   .hx { padding-top: 100px; text-align: center; align-items: center; }
   .hx-inner { align-items: center; width: 100%; }
   .hx-copy { width: 100%; }
+  .hx-topline { justify-content: center; margin-bottom: 1.5rem; }
   .hx-brand { font-size: 5.5rem; margin-bottom: 0.5rem; line-height: 0.7; }
   .hx-title-line, .hx-title-grad { font-size: 2.2rem; }
   .hx-lead { padding: 0; border: none; text-align: center; margin-top: 1.5rem; margin-inline: auto; font-size: 1.1rem; line-height: 1.7; }
   .hx-cta { flex-direction: column; width: 100%; gap: 1rem; margin-top: 2.5rem; }
   .hx-cta .btnx { width: 100%; padding: 1.2rem; font-size: 1rem; }
   .hx-trust { justify-content: center; width: 100%; gap: 2rem; }
+  .hx-div { display: none; }
+  .bento-proof { gap: 2.5rem; margin-top: 3.5rem; }
+  .hs-head { flex-direction: column; align-items: stretch; gap: 1.2rem; }
+  .hs-head .btnx { align-self: flex-start; }
+  /* presets: horizontal snap-scroll rail on phones (nothing overflows) */
+  .preset-rail {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 0.5rem 0 1.25rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .preset-rail::-webkit-scrollbar { display: none; }
+  .preset {
+    flex: 0 0 72vw;
+    min-height: 150px;
+    scroll-snap-align: center;
+    padding: 2.25rem 1.1rem 1.75rem;
+  }
   .footer-links { flex-direction: column; gap: 1rem; }
   .craft-stats { flex-direction: column; gap: 2rem; }
   .cs-item { text-align: center; }
@@ -1105,4 +1392,13 @@ body.rtl .sticky-dock-inner {
   .hx-title-line, .hx-title-grad { font-size: 1.6rem; }
   .dl-panel { padding: 1.5rem; }
   .gnum { font-size: 2.2rem; }
+  .hx-metrics { gap: 1.5rem; }
+  .hx-metrics b { font-size: 1.7rem; }
+  .preset { flex: 0 0 80vw; }
+  .checklist-card { padding: 1.5rem; }
+  .step-card { padding: 1.75rem 1.25rem; }
+  .checklist-head h3 { font-size: 1.15rem; }
+  .creator-panel { padding: 2.5rem 1.25rem; }
+  .faq-item summary { padding: 1.2rem; }
+  .faq-body { padding: 0 1.2rem 1.2rem; }
 }
