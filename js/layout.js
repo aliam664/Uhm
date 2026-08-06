@@ -95,7 +95,7 @@
     "</div></div>" +
     '<div class="sidebar-hint">' +
     '<span aria-hidden="true">◀</span> ' +
-    '<span data-fa="بخش‌ها را از این منوی چپ انتخاب کنید" data-en="Pick a section from this left menu">بخش‌ها را از این منوی چپ انتخاب کنید</span>' +
+    '<span data-fa="بخش‌ها را از این منو انتخاب کنید" data-en="Pick a section from this menu">بخش‌ها را از این منو انتخاب کنید</span>' +
     "</div>" +
     '<nav class="sidebar-nav">' +
     '<div class="nav-label" data-fa="منو" data-en="Menu">منو</div>' +

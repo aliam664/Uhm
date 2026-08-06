@@ -41,6 +41,16 @@
   --header-bg: rgba(10, 10, 11, 0.75);
   --shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.8);
 
+  /* layout tokens (were missing → caused full-width layout + transparent panels) */
+  --container: 1280px;
+  --gutter: 1.5rem;
+  --overlay: rgba(0, 0, 0, 0.62);
+  --sidebar-bg: rgba(9, 11, 18, 0.97);
+  --toast-bg: #0d1220;
+  --shadow-soft: 0 8px 22px rgba(0, 0, 0, 0.45);
+  --accent-soft-2: rgba(0, 136, 255, 0.06);
+  --line-red: rgba(255, 70, 70, 0.35);
+
   --font-fa: "Vazirmatn", sans-serif;
   --font-fa-display: "Lalezar", cursive;
   --font-en: "Syne", sans-serif;
@@ -231,6 +241,7 @@ button {
 
 /* ---------- Typography helpers ---------- */
 .h-en { font-family: var(--font-en); font-weight: 400; }
+.en { font-family: var(--font-en); }
 .mono {
   font-family: var(--font-mono);
   font-size: 0.78em;
@@ -312,6 +323,19 @@ body.ltr .btnx {
 .btnx-ico { display: inline-flex; align-items: center; }
 .btnx-arrow { font-family: var(--font-mono); }
 
+/* shine sweep on primary buttons */
+.btnx-shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.22) 50%, transparent 60%);
+  transform: translateX(-130%);
+  transition: transform 0.7s var(--ease);
+}
+.btnx-primary:hover .btnx-shine { transform: translateX(130%); }
+body.rtl .btnx-shine { transform: translateX(130%); }
+body.rtl .btnx-primary:hover .btnx-shine { transform: translateX(-130%); }
+
 /* ---------- Toast ---------- */
 .toast {
   position: fixed;
@@ -350,7 +374,85 @@ body.ltr .btnx {
 body.rtl .scroll-progress { transform-origin: right center; }
 
 /* ---------- Header ---------- */
-/* ---------- Header ---------- */
+/* Brand block (was missing → logo/text had no layout) */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 0;
+}
+.brand-logo {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 1px solid var(--line-2);
+  padding: 3px;
+  background: var(--bg);
+  flex-shrink: 0;
+}
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+  min-width: 0;
+}
+.brand-name {
+  font-family: var(--font-en);
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: 0.14em;
+  color: var(--heading);
+  white-space: nowrap;
+}
+.brand-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* Hamburger menu button (was missing → menu could never open on mobile) */
+.menu-toggle {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line-2);
+  border-radius: 50%;
+  background: transparent;
+  position: relative;
+  transition: all 0.3s var(--ease);
+}
+.menu-toggle:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.menu-toggle span {
+  position: absolute;
+  left: 50%;
+  width: 18px;
+  height: 2px;
+  margin-left: -9px;
+  background: var(--heading);
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease), opacity 0.3s var(--ease), width 0.3s var(--ease);
+}
+.menu-toggle span:nth-child(1) { transform: translateY(-6px); }
+.menu-toggle span:nth-child(2) { width: 13px; margin-left: -6.5px; }
+.menu-toggle span:nth-child(3) { transform: translateY(6px); }
+body.sidebar-open .menu-toggle span:nth-child(1) { transform: translateY(0) rotate(45deg); }
+body.sidebar-open .menu-toggle span:nth-child(2) { opacity: 0; }
+body.sidebar-open .menu-toggle span:nth-child(3) { transform: translateY(0) rotate(-45deg); }
+
+/* Theme icons: show only the relevant one per theme */
+.theme-toggle .icon-sun { display: none; }
+[data-theme="light"] .theme-toggle .icon-sun { display: block; }
+[data-theme="light"] .theme-toggle .icon-moon { display: none; }
+
 .site-header {
   position: fixed;
   top: 0;
@@ -401,7 +503,6 @@ body.rtl .scroll-progress { transform-origin: right center; }
     width: 32px;
     height: 32px;
   }
-}
 }
 
 .header-nav a:hover,
@@ -988,7 +1089,13 @@ body.rtl .footer-brand strong {
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 .video-overlay[hidden] { opacity: 0; visibility: hidden; pointer-events: none; }
-.video-overlay-content { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; text-align: center; }
+.video-overlay-content { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; text-align: center; position: relative; z-index: 1; }
+.video-overlay-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 45%, rgba(0, 136, 255, 0.16), transparent 60%);
+  pointer-events: none;
+}
 .video-play-btn {
   width: 84px;
   height: 84px;
@@ -1089,13 +1196,30 @@ body.rtl .footer-brand strong {
 .reveal.in, .stagger.in { opacity: 1; transform: none; }
 .stagger { transition-delay: 0.08s; }
 
+/* Hero word reveal (only animates once .hx-in is added by JS; safe fallback
+   = words stay visible if the script never runs) */
+.wrd { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 0.12em; margin-bottom: -0.12em; }
+.wrd-i { display: inline-block; }
+.hx-in .wrd-i {
+  animation: wrd-up 0.9s var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 0.07s);
+}
+@keyframes wrd-up {
+  from { transform: translateY(115%); }
+  to { transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   html { scroll-behavior: auto; }
   .reveal, .stagger { opacity: 1; transform: none; }
+  .hx-in .wrd-i { animation: none; }
 }
 
 /* ---------- Responsive ---------- */
+html { overflow-x: hidden; }
+@supports (overflow: clip) { html { overflow-x: clip; } }
+
 @media (max-width: 1180px) {
   .header-nav { display: none; }
 }
@@ -1111,4 +1235,30 @@ body.rtl .footer-brand strong {
   .sidebar { width: min(88vw, 300px); }
   .video-play-btn { width: 64px; height: 64px; }
   .media-frame { min-height: 200px; }
+  /* keep hero CTAs / long buttons inside small screens */
+  .dl-actions { flex-wrap: wrap; }
+}
+
+/* Small phones: compact controls so nothing overflows 320–360px */
+@media (max-width: 480px) {
+  .btnx { padding: 0.9rem 1.15rem; }
+  .hx-cta .btnx, .dl-actions .btnx { white-space: normal; text-align: center; }
+  .video-bar { gap: 0.35rem; padding: 0.55rem 0.6rem; }
+  .vbtn { width: 32px; height: 32px; }
+  .vtime { min-width: 0; font-size: 0.66rem; }
+  .media-frame { min-height: 190px; }
+  .path-box-top { gap: 0.5rem; }
+  .warn-box { padding: 1.2rem 1.1rem; }
+  .check-item { font-size: 0.92rem; }
+}
+
+/* iPhone notch / rounded corners safe areas */
+@supports (padding: max(0px)) {
+  .site-header {
+    padding-left: max(var(--space-m), env(safe-area-inset-left));
+    padding-right: max(var(--space-m), env(safe-area-inset-right));
+  }
+  .to-top { bottom: max(2rem, env(safe-area-inset-bottom)); }
+  .toast { bottom: max(1.4rem, env(safe-area-inset-bottom)); }
+  .sidebar { padding-bottom: env(safe-area-inset-bottom); }
 }
