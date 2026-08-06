@@ -57,7 +57,7 @@
     document.querySelectorAll("a, button, .gallery-item, .check-item, .gcard, .step-card, .preset").forEach((el) => {
       el.addEventListener("mouseenter", () => {
         cursor.style.transform = "translate(-50%, -50%) scale(2.5)";
-        cursor.style.backgroundColor = "rgba(255, 62, 0, 0.1)";
+        cursor.style.backgroundColor = "rgba(0, 136, 255, 0.1)";
         cursor.style.borderColor = "transparent";
       });
       el.addEventListener("mouseleave", () => {
