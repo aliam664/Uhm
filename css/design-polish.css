@@ -28,3 +28,5 @@
 .reveal{transition:opacity var(--motion-enter) var(--ease-out),transform var(--motion-enter) var(--ease-out)}.btn,.icon,.menu-btn{transition:transform var(--motion-ui) var(--ease-out),box-shadow var(--motion-ui) var(--ease-out),border-color var(--motion-ui) var(--ease-out),background-color var(--motion-ui) var(--ease-out)}
 @media(max-width:780px){.guide:first-child{grid-column:auto;min-height:160px}.guide:first-child h3{font-size:1.16rem}.guide:first-child p{max-width:80%}.guide:first-child .guide-num{font-size:3rem}.section-head p,.page-hero p{max-inline-size:100%}}
 [dir=rtl] .meter i{transform-origin:right center}
+/* English guide pages follow their native reading direction; step markers belong on the left. */
+[dir=ltr] .step-list li{padding:15px 0 15px 56px}[dir=ltr] .step-list li:before{right:auto;left:0}
