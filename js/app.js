@@ -22,3 +22,18 @@ if(heroVideo){
 }
 // External links opened in a separate tab should never retain access to this page.
 $$('a[target="_blank"]').forEach(link=>link.rel='noopener noreferrer');
+
+// Homepage-only motion: it reinforces order (copy → CTA → stats), never blocks reading.
+if(document.querySelector('.hero')){
+ const motionAllowed=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const stats=$$('[data-count]');
+ if(motionAllowed&&stats.length){
+  const statObserver=new IntersectionObserver(([entry],observer)=>{if(!entry.isIntersecting)return;stats.forEach(node=>{const target=Number(node.dataset.count),start=performance.now(),duration=650;const tick=now=>{node.textContent=Math.min(target,Math.round((now-start)/duration*target));if(now-start<duration)requestAnimationFrame(tick)};node.textContent='0';requestAnimationFrame(tick)});observer.disconnect()},{threshold:.7});
+  statObserver.observe($('.stats'));
+ }
+ const magnetic=$('.hero-buttons .btn.primary');
+ if(motionAllowed&&magnetic&&matchMedia('(pointer:fine)').matches){
+  magnetic.addEventListener('pointermove',event=>{const box=magnetic.getBoundingClientRect();magnetic.style.setProperty('--mag-x',`${(event.clientX-box.left-box.width/2)*.08}px`);magnetic.style.setProperty('--mag-y',`${(event.clientY-box.top-box.height/2)*.08}px`)});
+  magnetic.addEventListener('pointerleave',()=>{magnetic.style.setProperty('--mag-x','0px');magnetic.style.setProperty('--mag-y','0px')});
+ }
+}
