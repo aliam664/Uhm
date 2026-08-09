@@ -5,6 +5,15 @@
 
 ---
 
+## Product website
+
+The static bilingual product site lives at the repository root. Start it locally with `python3 -m http.server 8080` and open `http://localhost:8080`.
+
+- Persian: `/`
+- English: `/en/`
+- Product and design audit: [`PROJECT-AUDIT.md`](PROJECT-AUDIT.md)
+- Typography assets: [`assets/fonts/README.md`](assets/fonts/README.md)
+
 > **وضعیت آماده‌سازی:** برای گزارش حرفه‌ای وضعیت، پوشش مدیا و برنامهٔ ساخت آینده، [`PROJECT-AUDIT.md`](PROJECT-AUDIT.md) را ببینید.
 
 ---

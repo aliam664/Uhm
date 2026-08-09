@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aliam664.github.io/Uhm/sitemap.xml
