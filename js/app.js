@@ -7,16 +7,18 @@ const lang=$('#lang');lang?.addEventListener('click',()=>{const alternate=root.d
 const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});$$('.reveal').forEach(e=>observer.observe(e));
 addEventListener('scroll',()=>{root.style.setProperty('--progress',`${scrollY/(document.documentElement.scrollHeight-innerHeight)*100}%`);$('#dock')?.classList.toggle('show',scrollY>650)},{passive:true});
 $$('.copy').forEach(b=>b.addEventListener('click',async()=>{const english=root.lang==='en', idle=english?'Copy path':'کپی مسیر';try{await navigator.clipboard.writeText(b.closest('.path').dataset.copy);b.textContent=english?'Copied ✓':'کپی شد ✓';setTimeout(()=>b.textContent=idle,1600)}catch{b.textContent=english?'Select text':'انتخاب کنید'}}));
-const checks=$$('.checks input'),meter=$('.meter i');if(checks.length){let saved=JSON.parse(localStorage.getItem('uhm-prep-checks')||'[]');checks.forEach((c,i)=>{c.checked=!!saved[i];c.addEventListener('change',()=>{localStorage.setItem('uhm-prep-checks',JSON.stringify(checks.map(x=>x.checked)));update()})});function update(){meter.style.width=`${checks.filter(x=>x.checked).length/checks.length*100}%`}update()}
+const checks=$$('.checks input'),meter=$('.meter i');if(checks.length){let saved=JSON.parse(localStorage.getItem('uhm-prep-checks')||'[]');checks.forEach((c,i)=>{c.checked=!!saved[i];c.addEventListener('change',()=>{localStorage.setItem('uhm-prep-checks',JSON.stringify(checks.map(x=>x.checked)));update()})});function update(){meter.style.setProperty('--check-progress',checks.filter(x=>x.checked).length/checks.length)}update()}
 const hero=$('.hero');hero?.addEventListener('pointermove',e=>{if(matchMedia('(pointer:fine)').matches)hero.style.background=`radial-gradient(circle at ${e.clientX/window.innerWidth*100}% ${e.clientY/hero.offsetHeight*100}%,#0088ff18,transparent 25%)`});
 const gallery=$$('.gallery img'),light=$('.lightbox');let at=0;function show(i){at=(i+gallery.length)%gallery.length;$('.lightbox img').src=gallery[at].src;$('.lightbox img').alt=gallery[at].alt;light.classList.add('open')}gallery.forEach((x,i)=>x.parentElement.addEventListener('click',()=>show(i)));$$('[data-light]').forEach(b=>b.addEventListener('click',()=>light?.classList.remove('open')));document.addEventListener('keydown',e=>{if(!light?.classList.contains('open'))return;if(e.key==='ArrowLeft')show(at+1);if(e.key==='ArrowRight')show(at-1)});
 
 // Keep background media decorative and inexpensive: it only runs while its hero is in view.
 const heroVideo=$('.hero-video');
 if(heroVideo){
- const mediaObserver=new IntersectionObserver(([entry])=>entry.isIntersecting&&!document.hidden?heroVideo.play().catch(()=>{}):heroVideo.pause(),{threshold:.08});
+ const compact=matchMedia('(max-width:700px)').matches;
+ if(compact) heroVideo.pause();
+ const mediaObserver=new IntersectionObserver(([entry])=>entry.isIntersecting&&!document.hidden&&!compact?heroVideo.play().catch(()=>{}):heroVideo.pause(),{threshold:.08});
  mediaObserver.observe(heroVideo);
- document.addEventListener('visibilitychange',()=>document.hidden?heroVideo.pause():heroVideo.play().catch(()=>{}));
+ document.addEventListener('visibilitychange',()=>document.hidden||compact?heroVideo.pause():heroVideo.play().catch(()=>{}));
 }
 // External links opened in a separate tab should never retain access to this page.
 $$('a[target="_blank"]').forEach(link=>link.rel='noopener noreferrer');
