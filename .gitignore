@@ -1,0 +1,14 @@
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Local development output and dependencies (the intended site is static)
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
